@@ -5,16 +5,13 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <iframe
           src="https://player.vimeo.com/video/1114886356?autoplay=1&muted=1&loop=1&background=1"
-          className="w-full h-full"
+          className="w-full h-full top-0 left-0 absolute"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
           title="sweetpotato"
         ></iframe>
       </div>
-
-      {/* Overlay (optional for readability) */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
