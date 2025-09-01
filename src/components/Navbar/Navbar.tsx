@@ -5,9 +5,9 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="relative z-20 flex items-center justify-between p-4 md:p-6">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 md:p-6">
         {/* Logo */}
-        <div className="flex items-center h-12 w-12 md:h-20 md:w-20 flex-shrink-0">
+        <div className="flex items-center h-20 w-20 md:h-20 md:w-20 flex-shrink-0">
           <img src="src/assets/images/logos/fuory-logo.png" className="w-full h-full" alt="fuory logo" />
         </div>
 
@@ -15,19 +15,19 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-2">
           <a
             href="#"
-            className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
+            className="text-white/80 hover:text-white text-xl font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
           >
             Features
           </a>
           <a
             href="#"
-            className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
+            className="text-white/80 hover:text-white text-xl font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
           >
             Pricing
           </a>
           <a
             href="#"
-            className="text-white/80 hover:text-white text-xs font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
+            className="text-white/80 hover:text-white text-xl font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
           >
             Docs
           </a>
@@ -181,7 +181,7 @@ const Navbar = () => {
             </div>
 
             <div className="absolute bottom-12 left-12 right-12">
-              <div className="flex justify-between items-center text-lime-400/80 text-lg font-light">
+              <div className="flex justify-between items-center text-white text-lg font-light">
                 <a href="#" className="hover:text-lime-400 transition-colors duration-200">
                   Home
                 </a>
