@@ -1,10 +1,12 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
+import HeroSection from "./features/hero/HeroSection";
 
 function App() {
   return (
-    <div className="App bg-black">
+    <div className="w-full h-full">
       <Navbar/>
+      <HeroSection/>
     </div>
   );
 }
