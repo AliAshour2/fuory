@@ -1,11 +1,11 @@
 const HeroSection = () => {
-   return (
+  return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <iframe
           src="https://player.vimeo.com/video/1114886356?autoplay=1&muted=1&loop=1&background=1"
-          className="w-full h-full top-0 left-0 absolute"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
@@ -25,6 +25,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-}
+};
 
-export default HeroSection
+export default HeroSection;

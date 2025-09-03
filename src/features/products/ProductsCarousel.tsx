@@ -11,10 +11,9 @@ import pattern from "@/assets/images/patterns/pattern.png"
 const ProductsCarousel = () => {
   return (
     <section 
-      className="py-20"
+      className="flex justify-center items-center  w-full h-screen"
       style={{
-        backgroundImage: `url(${pattern})`,
-        
+        backgroundImage: `url(${pattern})`,    
       }}
     >
       <div className="container mx-auto px-4">
