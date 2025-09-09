@@ -3,7 +3,11 @@ import kiwi from '@/assets/images/fruitsandvegetables/kiwi.png'
 import mango from '@/assets/images/fruitsandvegetables/mango.png'
 import orange from '@/assets/images/fruitsandvegetables/orange.png'
 import watermelon from '@/assets/images/fruitsandvegetables/watermelon.png'
-
+import redPappers from '@/assets/images/fruitsandvegetables/redpapers.png'
+import yellowPappers from '@/assets/images/fruitsandvegetables/yellowpappers.png'
+import greenPappers from '@/assets/images/fruitsandvegetables/greenpapers.png'
+import sweetPotato from '@/assets/images/fruitsandvegetables/sweetpotato.png'
+import tomato from '@/assets/images/fruitsandvegetables/tomato.png'
 export const products = [
   {
     id: 1,
@@ -34,5 +38,35 @@ export const products = [
     name: 'Fresh Watermelon',
     image: watermelon,
     description: 'Refreshing summer watermelon'
+  },
+  {
+    id: 6,
+    name : 'Red pappers',
+    image : redPappers ,
+    description : 'Crisp and vibrant red peppers'
+  },
+  {
+    id: 7,
+    name : 'Yellow pappers',
+    image : yellowPappers,
+    description : 'Sweet and crunchy yellow peppers'
+  },
+  {
+    id: 8,
+    name : 'Green pappers',
+    image : greenPappers,
+    description : 'Fresh and crisp green peppers'
+  },
+  {
+    id: 9,
+    name : 'Sweet Potato',
+    image : sweetPotato,
+    description : 'Fresh and healthy sweet potatoes'
+  },
+  {
+    id: 10,
+    name : 'tomato',
+    image : tomato,
+    description : 'Fresh and healthy sweet potatoes'
   }
 ]

@@ -17,7 +17,7 @@ const ProductsCarousel = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 font-bebas text-white">Our Fresh Products</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white font-veneer">Our Fresh Products</h2>
         <Carousel className="w-full">
           <CarouselContent>
             {products.map((product) => (
