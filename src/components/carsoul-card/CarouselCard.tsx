@@ -3,17 +3,25 @@ interface CarouselCardProps {
   name: string;
   description: string;
 }
-const CarouselCard = (CarouselCard: CarouselCardProps) => {
+
+const CarouselCard = ({ image, name, description }: CarouselCardProps) => {
   return (
-    <div>
-      <div className="w-72 h-72">
-        <img
-          src={CarouselCard.image}
-          className="w-full h-full"
-          alt={CarouselCard.description}
-        />
+    <div className="p-4">
+      <div className="rounded-xl overflow-hidden  transition-transform hover:scale-105 duration-300">
+        <div className="flex items-center justify-center overflow-hidden mx-auto">
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="py-6 pb-6 text-center">
+          <h3 className="text-3xl font-bold mb-2 text-white font-bebas">
+            {name}
+          </h3>
+          <p className="text-gray-200 font-bebas">{description}</p>
+        </div>
       </div>
-      <span className="text-3xl">{CarouselCard.name}</span>
     </div>
   );
 };
