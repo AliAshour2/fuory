@@ -1,32 +1,28 @@
 @import "tailwindcss";
 
-
 body {
   max-width: 118rem;
   margin: 0 auto;
 }
 
 @font-face {
-font-family: "Bebas Neue";
-  src: url("@/src/assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+  font-family: "Bebas Neue";
+  src: url("../src/assets/fonts/BebasNeue-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Veneer';
-  src: url('@/src/assets/fonts/Fontspring-DEMO-Veneer.otf') format('opentype');
-  font-weight: normal;
+  font-family: "Veneer";
+  src: url("../src/assets/fonts/veneer/Fontspring-DEMO-Veneer.otf") format("opentype");
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
-
-@layer utilities {
-  .font-bebas {
-    font-family: "Bebas Neue", sans-serif;
-  }
-    .font-veneer {
-        font-family: 'Veneer', sans-serif;
-    }
+@theme {
+  /* FONT FAMILIES */
+  --font-veneer: "Veneer", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
 }
