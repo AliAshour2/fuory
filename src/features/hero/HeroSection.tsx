@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
@@ -15,10 +16,17 @@ const HeroSection = () => {
 
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-bold">Welcome to Our World</h1>
-        <p className="mt-4 text-lg md:text-2xl">
+        <h1 className="text-4xl md:text-6xl font-bold font-dm">
+          Welcome to Our World
+        </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-4 text-lg md:text-2xl"
+        >
           Fresh, healthy, and sustainable sweet potatoes.
-        </p>
+        </motion.div>
         <button className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-xl transition">
           Get Started
         </button>

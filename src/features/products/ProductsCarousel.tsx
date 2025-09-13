@@ -9,6 +9,8 @@ import { products } from "@/constants/products";
 import pattern from "@/assets/images/patterns/pattern.png";
 import CarouselCard from "@/components/carsoul-card/CarouselCard";
 
+import { motion } from "framer-motion";
+
 const ProductsCarousel = () => {
   return (
     <section
@@ -18,9 +20,14 @@ const ProductsCarousel = () => {
       }}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-7xl font-bold text-center mb-12 text-white font-veneer">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-7xl font-bold text-center mb-12 text-white font-veneer"
+        >
           Our Fresh Products
-        </h2>
+        </motion.h2>
         <Carousel className="w-full">
           <CarouselContent>
             {products.map((product) => (
@@ -28,11 +35,17 @@ const ProductsCarousel = () => {
                 key={product.id}
                 className="md:basis-1/2 lg:basis-1/3 animate-fade-up "
               >
-                <CarouselCard
-                  image={product.image}
-                  name={product.name}
-                  description={product.description}
-                ></CarouselCard>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <CarouselCard
+                    image={product.image}
+                    name={product.name}
+                    description={product.description}
+                  ></CarouselCard>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>

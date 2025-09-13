@@ -21,8 +21,17 @@ body {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "dm";
+  src: url("../src/assets/fonts/DMSerifText-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   /* FONT FAMILIES */
   --font-veneer: "Veneer", sans-serif;
   --font-bebas: "Bebas Neue", sans-serif;
+  --font-dm: "dm", serif;
 }
