@@ -4,7 +4,8 @@ import WhyChooseFuory from "./features/whyFuory/WhyChooseFuory";
 import HeroSection from "./features/hero/HeroSection";
 import ProductsCarousel from "./features/products/ProductsCarousel";
 import IQF_Section from "./features/iqfSection/IqfSection";
-import Counter from "./features/counter/Counter";
+
+import CounterSection from "./features/counter/Counter";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <HeroSection />
       <ProductsCarousel />
       <IQF_Section />
-      <Counter/>
+      <CounterSection/>
       <WhyChooseFuory />
     </div>
   );
