@@ -70,7 +70,7 @@ const WhyChooseFuory = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {items.map((item, index) => (
             <motion.div
@@ -78,6 +78,7 @@ const WhyChooseFuory = () => {
               variants={cardVariants}
               whileHover={{ scale: 1.08, y: -5 }}
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
+              viewport={{once:false}}
               className="flex flex-col items-center text-center backdrop-blur-3xl rounded-2xl p-6 shadow-lg cursor-pointer"
             >
               {/* Icon with pop animation */}

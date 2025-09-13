@@ -16,6 +16,7 @@ function App() {
       <IQF_Section />
       <CounterSection/>
       <WhyChooseFuory />
+      <div className="h-screen w-screen bg-red-300"></div>
     </div>
   );
 }
