@@ -13,10 +13,10 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 md:p-6"
       >
         {/* Logo */}
-        <div className="flex items-center h-20 w-20 md:h-20 md:w-20 flex-shrink-0">
+        <div className="flex items-center h-24 w-24 md:h-20 md:w-20 flex-shrink-0">
           <img
             src="src/assets/images/logos/fuory-logo.png"
-            className="w-full h-full"
+            className="w-full h-full object-contain"
             alt="fuory logo"
           />
         </div>

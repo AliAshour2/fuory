@@ -6,6 +6,8 @@ import ProductsCarousel from "./features/products/ProductsCarousel";
 import IQF_Section from "./features/iqfSection/IqfSection";
 
 import CounterSection from "./features/counter/Counter";
+import Footer from "./components/footer/Footer";
+import ContactUs from "./features/contant-us/ContactUs";
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
       <IQF_Section />
       <CounterSection/>
       <WhyChooseFuory />
-      <div className="h-screen w-screen bg-red-300"></div>
+      <ContactUs/>
+      <Footer/>
     </div>
   );
 }
