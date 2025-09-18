@@ -27,19 +27,20 @@ const Navbar = () => {
             href="#"
             className="text-white/80 hover:text-white text-xl font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
           >
-            Features
+            
+            Home
           </a>
           <a
-            href="#"
+            href="#products"
             className="text-white/80 hover:text-white text-xl font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
           >
-            Pricing
+           Products
           </a>
           <a
-            href="#"
+            href="#frozen"
             className="text-white/80 hover:text-white text-xl font-light px-3 py-2 rounded-full hover:bg-white/10 transition-all duration-200"
           >
-            Docs
+            Frozen
           </a>
         </nav>
 
@@ -107,7 +108,7 @@ const Navbar = () => {
             </svg>
           </button>
           <button className="px-6 py-2 rounded-full bg-white text-black font-normal text-xs transition-all duration-300 hover:bg-white/90 cursor-pointer h-8 flex items-center z-10">
-            Login
+            Get in Touch
           </button>
         </div>
       </motion.header>
