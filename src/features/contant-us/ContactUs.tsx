@@ -49,14 +49,14 @@ export default function ContactUs() {
 
     try {
       await emailjs.send(
-        "service_tjv624q",   // 👈 من EmailJS
-        "template_p4sgwhr",  // 👈 من EmailJS
+        "service_tjv624q",   
+        "template_p4sgwhr",  
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "fa02rEQd0PFy5sGD8"    // 👈 من EmailJS
+        "fa02rEQd0PFy5sGD8"    
       )
 
       alert("✅ Message sent successfully!")
