@@ -78,7 +78,7 @@ export default function ContactUs() {
             isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4 text-green-400 font-veneer">Get in Touch</h2>
+          <h2 className="text-4xl md:text-6xl mb-4 text-green-400 font-veneer">Get in Touch</h2>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto font-dm">
             Ready to start your next project? We'd love to hear from you. Send us a message and we'll respond as soon as
             possible.
