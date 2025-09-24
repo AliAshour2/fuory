@@ -3,16 +3,12 @@ const HeroSection = () => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <iframe
-          src="https://player.vimeo.com/video/1114886356?autoplay=1&muted=1&loop=1&background=1"
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          title="sweetpotato"
-        ></iframe>
-      </div>
+
+      <img
+        src="../src/assets/images/backgrounds/homepage.png"
+        alt="Background"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
 
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white px-4">
@@ -30,6 +26,14 @@ const HeroSection = () => {
         <button className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-xl transition">
           Get Started
         </button>
+        <div>
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
