@@ -25,7 +25,7 @@ const AgriculturalShowcase = () => {
       title: "FRESH FRUITS",
       subtitle: "Organically Grown Excellence",
       description:
-        "Furoy provides high-quality fresh fruits from cultivation to packaging. We offer grapes, pomegranates, and figs, following international specifications to preserve fruits with their full specifications without defects.",
+        "Fuory provides high-quality fresh fruits from cultivation to packaging. We offer grapes, pomegranates, and figs, following international specifications to preserve fruits with their full specifications without defects.",
       features: [
         "EU approved pesticides",
         "International quality standards",

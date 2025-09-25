@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,9 +15,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/", delay: 0.1 },
-    { name: "Products", href: "/#products", delay: 0.2 },
-    { name: "Frozen", href: "/#frozen", delay: 0.3 },
+    { name: "Home", href: "#home", delay: 0.1 },
+    { name: "Products", href: "#products", delay: 0.2 },
+    { name: "Frozen", href: "#frozen", delay: 0.3 },
   ];
 
   return (
@@ -48,25 +47,22 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4">
           {navLinks.map((link) => (
-            <motion.div
+            <motion.a
               key={link.name}
+              href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: link.delay }}
-            >
-              <Link
-                to={link.href}
-                className="relative px-4 py-2 text-lg font-light text-gray-800
+              className="relative px-4 py-2 text-lg font-light text-gray-800
                         hover:text-emerald-600 transition-colors duration-200"
-              >
-                {link.name}
-                <motion.span
-                  className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </Link>
-            </motion.div>
+            >
+              {link.name}
+              <motion.span
+                className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.a>
           ))}
         </nav>
 
@@ -79,7 +75,7 @@ const Navbar = () => {
                        text-white text-sm font-medium shadow-md hover:shadow-lg
                        transition-all duration-300"
           >
-            <Link to="/#contact">Get in Touch</Link>
+            <a href="#contact">Get in Touch</a>
           </motion.button>
         </div>
 
@@ -93,12 +89,32 @@ const Navbar = () => {
         >
           MENU
           {isMenuOpen ? (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           ) : (
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16"/>
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           )}
         </button>
@@ -116,23 +132,21 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link) => (
-                <motion.div
+                <motion.a
                   key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: link.delay, duration: 0.4 }}
-                  className="text-center"
+                  className="text-3xl font-light text-gray-800 hover:text-emerald-600 transition-colors"
                 >
-                  <Link
-                    to={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-3xl font-light text-gray-800 hover:text-emerald-600 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
+                  {link.name}
+                </motion.a>
               ))}
-              <motion.button
+              <motion.a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.4 }}
@@ -140,10 +154,8 @@ const Navbar = () => {
                            text-white text-lg font-medium shadow-lg hover:shadow-xl
                            transition-all duration-300"
               >
-                <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>
-                  Get in Touch
-                </Link>
-              </motion.button>
+                Get in Touch
+              </motion.a>
             </nav>
           </motion.div>
         )}
