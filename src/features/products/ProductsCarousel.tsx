@@ -6,7 +6,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { products } from "@/constants/products";
-import pattern from "@/assets/images/patterns/pattern.png";
+import pattern from "@/assets/images/patterns/pattern.webp";
 import CarouselCard from "@/components/carsoul-card/CarouselCard";
 
 import { motion } from "framer-motion";

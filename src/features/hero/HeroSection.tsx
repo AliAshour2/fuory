@@ -5,7 +5,7 @@ const HeroSection = () => {
       {/* Video Background */}
 
       <img
-        src="../src/assets/images/backgrounds/homepage.png"
+        src="../src/assets/images/backgrounds/homepage.webp"
         alt="Background"
         className="absolute top-0 left-0 w-full h-full object-cover"
       />

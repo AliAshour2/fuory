@@ -50,7 +50,7 @@ const WhyChooseFuory = () => {
   ];
 
   return (
-    <section className="relative bg-[url('../src/assets/images/whybackground.jpeg')] bg-cover bg-center bg-no-repeat py-20 px-6 text-white">
+    <section className="relative bg-[url('../src/assets/images/whybackground.webp')] bg-cover bg-center bg-no-repeat py-20 px-6 text-white">
       <div className="absolute inset-0" />
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Heading */}

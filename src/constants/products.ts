@@ -1,22 +1,22 @@
-import fig from "@/assets/images/fruitsandvegetables/fig.png";
-import kiwi from "@/assets/images/fruitsandvegetables/kiwi.png";
-import mango from "@/assets/images/fruitsandvegetables/mango.png";
-import orange from "@/assets/images/fruitsandvegetables/orange.png";
-import watermelon from "@/assets/images/fruitsandvegetables/watermelon.png";
-import redPappers from "@/assets/images/fruitsandvegetables/redpapers.png";
-import yellowPappers from "@/assets/images/fruitsandvegetables/yellowpappers.png";
-import greenPappers from "@/assets/images/fruitsandvegetables/greenpapers.png";
-import sweetPotato from "@/assets/images/fruitsandvegetables/sweetpotato.png";
-import tomato from "@/assets/images/fruitsandvegetables/tomato.png";
+import fig from "@/assets/images/fruitsandvegetables/fig.webp";
+import kiwi from "@/assets/images/fruitsandvegetables/kiwi.webp";
+import mango from "@/assets/images/fruitsandvegetables/mango.webp";
+import orange from "@/assets/images/fruitsandvegetables/orange.webp";
+import watermelon from "@/assets/images/fruitsandvegetables/watermelon.webp";
+import redPappers from "@/assets/images/fruitsandvegetables/redpapers.webp";
+import yellowPappers from "@/assets/images/fruitsandvegetables/yellowpappers.webp";
+import greenPappers from "@/assets/images/fruitsandvegetables/greenpapers.webp";
+import sweetPotato from "@/assets/images/fruitsandvegetables/sweetpotato.webp";
+import tomato from "@/assets/images/fruitsandvegetables/tomato.webp";
 
-import frozen2 from "@/assets/images/forzen/forzen2.png";
-import frozen3 from "@/assets/images/forzen/forzen3.png";
-import frozen4 from "@/assets/images/forzen/forzen4.png";
-import frozen6 from "@/assets/images/forzen/forzen6.png";
-import frozen7 from "@/assets/images/forzen/forzen7.png";
-import frozen8 from "@/assets/images/forzen/forzen8.png";
-import frozen9 from "@/assets/images/forzen/forzen9.png";
-import frozen10 from "@/assets/images/forzen/forzen10.png";
+import frozen2 from "@/assets/images/forzen/forzen2.webp";
+import frozen3 from "@/assets/images/forzen/forzen3.webp";
+import frozen4 from "@/assets/images/forzen/forzen4.webp";
+import frozen6 from "@/assets/images/forzen/forzen6.webp";
+import frozen7 from "@/assets/images/forzen/forzen7.webp";
+import frozen8 from "@/assets/images/forzen/forzen8.webp";
+import frozen9 from "@/assets/images/forzen/forzen9.webp";
+import frozen10 from "@/assets/images/forzen/forzen10.webp";
 
 export const products = [
   {

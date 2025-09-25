@@ -38,7 +38,7 @@ const Navbar = () => {
           className="flex items-center h-16 w-16 flex-shrink-0 transition-all duration-300"
         >
           <img
-            src="src/assets/images/logos/fuory-logo.png"
+            src="src/assets/images/logos/fuory-logo.webp"
             className="w-full h-full object-contain"
             alt="fuory logo"
           />

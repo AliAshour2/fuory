@@ -15,7 +15,7 @@ const products = [
       "Low acidity",
       "International standards",
     ],
-    image: "../src/assets/images/varity/oranges.png",
+    image: "../src/assets/images/varity/oranges.webp",
   },
   {
     id: "fresh-fruits",
@@ -29,7 +29,7 @@ const products = [
       "Perfect ripeness",
       "Export ready",
     ],
-    image: "../src/assets/images/varity/fruits.png",
+    image: "../src/assets/images/varity/fruits.webp",
   },
   {
     id: "vegetables",
@@ -43,7 +43,7 @@ const products = [
       "Safe packaging materials",
       "Food safety certified",
     ],
-    image: "../src/assets/images/varity/vegetables.png",
+    image: "../src/assets/images/varity/vegetables.webp",
   },
   {
     id: "iqf",
@@ -57,7 +57,7 @@ const products = [
       "Individual separation",
       "Extended shelf life",
     ],
-    image: "../src/assets/images/varity/frozen.png",
+    image: "../src/assets/images/varity/frozen.webp",
   },
 ];
 

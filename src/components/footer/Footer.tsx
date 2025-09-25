@@ -4,13 +4,13 @@ import { Button } from "../ui/button"
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-[url('../src/assets/images/patterns/pattern.png')] bg-cover bg-center bg-no-repeat">
+    <footer className="text-white bg-[url('../src/assets/images/patterns/pattern.webp')] bg-cover bg-center bg-no-repeat">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="space-y-6 animate-fade-in-up [animation-delay:0ms]">
             <div className="flex items-center h-20 w-20 transform hover:scale-110 transition-transform duration-300">
-              <img src="src/assets/images/logos/fuory-logo.png" className="w-full h-full object-contain" alt="fuory logo" />
+              <img src="src/assets/images/logos/fuory-logo.webp" className="w-full h-full object-contain" alt="fuory logo" />
             </div>
             <p className="font-sans text-base text-gray-100 leading-relaxed">
               Fuory Company has been established in the Egyptian market since{" "}
