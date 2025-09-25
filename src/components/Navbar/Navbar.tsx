@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +16,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#", delay: 0.1 },
-    { name: "Products", href: "#products", delay: 0.2 },
-    { name: "Frozen", href: "#frozen", delay: 0.3 },
+    { name: "Home", href: "/", delay: 0.1 },
+    { name: "Products", href: "/#products", delay: 0.2 },
+    { name: "Frozen", href: "/#frozen", delay: 0.3 },
   ];
 
   return (
@@ -47,22 +48,25 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4">
           {navLinks.map((link) => (
-            <motion.a
+            <motion.div
               key={link.name}
-              href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: link.delay }}
-              className="relative px-4 py-2 text-lg font-light text-gray-800
-                        hover:text-emerald-600 transition-colors duration-200"
             >
-              {link.name}
-              <motion.span
-                className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
+              <Link
+                to={link.href}
+                className="relative px-4 py-2 text-lg font-light text-gray-800
+                        hover:text-emerald-600 transition-colors duration-200"
+              >
+                {link.name}
+                <motion.span
+                  className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3 }}
+                />
+              </Link>
+            </motion.div>
           ))}
         </nav>
 
@@ -75,7 +79,7 @@ const Navbar = () => {
                        text-white text-sm font-medium shadow-md hover:shadow-lg
                        transition-all duration-300"
           >
-            Get in Touch
+            <Link to="/#contact">Get in Touch</Link>
           </motion.button>
         </div>
 
@@ -108,30 +112,39 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-gradient-to-br from-emerald-700 via-emerald-600 to-lime-500
-                       text-white flex flex-col items-center justify-center gap-10 md:hidden"
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-sm md:hidden"
           >
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
+            <nav className="flex flex-col items-center justify-center h-full gap-8">
+              {navLinks.map((link) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: link.delay, duration: 0.4 }}
+                  className="text-center"
+                >
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-3xl font-light text-gray-800 hover:text-emerald-600 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: link.delay }}
-                className="text-3xl font-light tracking-wide hover:text-lime-200 transition-colors"
+                transition={{ delay: 0.5, duration: 0.4 }}
+                className="px-8 py-3 mt-4 rounded-full bg-gradient-to-r from-emerald-500 to-lime-400
+                           text-white text-lg font-medium shadow-lg hover:shadow-xl
+                           transition-all duration-300"
               >
-                {link.name}
-              </motion.a>
-            ))}
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-              className="mt-10 px-8 py-3 rounded-full bg-white text-emerald-600 font-medium shadow-md"
-            >
-              Get in Touch
-            </motion.button>
+                <Link to="/#contact" onClick={() => setIsMenuOpen(false)}>
+                  Get in Touch
+                </Link>
+              </motion.button>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

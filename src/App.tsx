@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import WhyChooseFuory from "./features/whyFuory/WhyChooseFuory";
@@ -7,21 +8,36 @@ import IQF_Section from "./features/iqfSection/IqfSection";
 
 import CounterSection from "./features/counter/Counter";
 import Footer from "./components/footer/Footer";
-import ContactUs from "./features/contant-us/ContactUs";
+import ContactUs from "./features/contact-us/ContactUs";
 import AgriculturalShowcase from "./features/varity";
 
 function App() {
   return (
     <div className="w-full h-full">
+      <Helmet>
+        <title>Fuory - Fresh and Frozen Produce</title>
+        <meta
+          name="description"
+          content="Fuory is a leading supplier of high-quality fresh and frozen fruits and vegetables, sourced from the best farms in Egypt."
+        />
+      </Helmet>
       <Navbar />
-      <HeroSection />
-      <AgriculturalShowcase/>
-      <ProductsCarousel />
+      <div id="home">
+        <HeroSection />
+      </div>
+      <div id="products">
+        <AgriculturalShowcase />
+      </div>
+      <div id="frozen">
+        <ProductsCarousel />
+      </div>
       <IQF_Section />
-      <CounterSection/>
+      <CounterSection />
       <WhyChooseFuory />
-      <ContactUs/>
-      <Footer/>
+      <div id="contact">
+        <ContactUs />
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent } from "@/components/ui/card"
+
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import emailjs from "emailjs-com"
 
@@ -15,6 +15,9 @@ export default function ContactUs() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
+    null
+  )
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -44,24 +47,25 @@ export default function ContactUs() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus(null)
 
     try {
       await emailjs.send(
-        "service_tjv624q",   
-        "template_p4sgwhr",  
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "fa02rEQd0PFy5sGD8"    
+        import.meta.env.VITE_EMAILJS_USER_ID
       )
 
-      alert("✅ Message sent successfully!")
+      setSubmitStatus("success")
       setFormData({ name: "", email: "", message: "" })
     } catch (error) {
       console.error("❌ EmailJS Error:", error)
-      alert("Failed to send message. Please try again later.")
+      setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
     }
@@ -78,10 +82,12 @@ export default function ContactUs() {
             isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-4xl md:text-6xl mb-4 text-green-400 font-veneer">Get in Touch</h2>
+          <h2 className="text-4xl md:text-6xl mb-4 text-green-400 font-veneer">
+            Get in Touch
+          </h2>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto font-dm">
-            Ready to start your next project? We'd love to hear from you. Send us a message and we'll respond as soon as
-            possible.
+            Ready to start your next project? We'd love to hear from you. Send us a
+            message and we'll respond as soon as possible.
           </p>
         </div>
 
@@ -95,8 +101,8 @@ export default function ContactUs() {
             <div>
               <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
               <p className="text-primary-foreground/80 mb-8">
-                Whether you have a question about features, pricing, need a demo, or anything else, our team is ready to
-                answer all your questions.
+                Whether you have a question about features, pricing, need a demo, or
+                anything else, our team is ready to answer all your questions.
               </p>
             </div>
 
@@ -138,80 +144,61 @@ export default function ContactUs() {
           </div>
 
           {/* Contact Form */}
-          <Card
-            className={`transition-all duration-1000 delay-400 ${
+          <div
+            className={`p-8 md:p-12 bg-card rounded-2xl shadow-2xl transition-all duration-1000 delay-300 ${
               isVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
             }`}
           >
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Full Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Your full name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email Address
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={5}
-                      placeholder="Tell us about your project or ask us a question..."
-                    />
-                  </div>
-                </div>
-
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <Input
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                className="bg-input border-border/50 focus:border-green-400"
+              />
+              <Input
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className="bg-input border-border/50 focus:border-green-400"
+              />
+              <Textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+                rows={5}
+                className="bg-input border-border/50 focus:border-green-400"
+              />
+              <div className="flex justify-end">
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-green-400 hover:bg-green-400/90 text-white transition-all duration-300"
+                  className="w-full md:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                 >
-                  {isSubmitting ? (
-                    <div className="flex items-center space-x-2">
-                      <div className="w-4 h-4 border-2 border-white/50 border-t-white rounded-full animate-spin"></div>
-                      <span>Sending...</span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center space-x-2">
-                      <Send className="w-4 h-4" />
-                      <span>Send Message</span>
-                    </div>
-                  )}
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <Send className="ml-2 h-5 w-5" />
                 </Button>
-              </form>
-            </CardContent>
-          </Card>
+              </div>
+            </form>
+            {submitStatus === "success" && (
+              <p className="mt-4 text-center text-green-400">
+                ✅ Message sent successfully!
+              </p>
+            )}
+            {submitStatus === "error" && (
+              <p className="mt-4 text-center text-red-500">
+                Failed to send message. Please try again later.
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </section>

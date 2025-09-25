@@ -5,13 +5,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { products } from "@/constants/products";
+import { useProducts } from "@/contexts/ProductsContext";
 import pattern from "@/assets/images/patterns/pattern.webp";
 import CarouselCard from "@/components/carsoul-card/CarouselCard";
 
 import { motion } from "framer-motion";
 
 const ProductsCarousel = () => {
+  const { products } = useProducts();
   return (
     <section
       id="products"

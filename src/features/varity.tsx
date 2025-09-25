@@ -1,67 +1,68 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useProducts } from "@/contexts/ProductsContext";
 
-const products = [
-  {
-    id: "citrus",
-    title: "CITRUS",
-    subtitle: "Premium Egyptian Citrus",
-    description:
-      "Citrus fruits are one of the most important products that Egypt exports to the world. Egyptian citrus fruits are distinguished by their high quality with lower levels of salinity, varying between oranges, tangerines, lemons, and grapefruits.",
-    features: [
-      "High juice content",
-      "Optimal sugar levels",
-      "Low acidity",
-      "International standards",
-    ],
-    image: "../src/assets/images/varity/oranges.webp",
-  },
-  {
-    id: "fresh-fruits",
-    title: "FRESH FRUITS",
-    subtitle: "Organically Grown Excellence",
-    description:
-      "Furoy provides high-quality fresh fruits from cultivation to packaging. We offer grapes, pomegranates, and figs, following international specifications to preserve fruits with their full specifications without defects.",
-    features: [
-      "EU approved pesticides",
-      "International quality standards",
-      "Perfect ripeness",
-      "Export ready",
-    ],
-    image: "../src/assets/images/varity/fruits.webp",
-  },
-  {
-    id: "vegetables",
-    title: "VEGETABLES",
-    subtitle: "Farm Fresh Quality",
-    description:
-      "Our fresh vegetables including potatoes, onions, tomatoes, and peppers are cultivated using the latest agricultural methods. We ensure products are free of pesticide residues and heavy metals through certified examination.",
-    features: [
-      "Pesticide residue free",
-      "Heavy metal tested",
-      "Safe packaging materials",
-      "Food safety certified",
-    ],
-    image: "../src/assets/images/varity/vegetables.webp",
-  },
-  {
-    id: "iqf",
-    title: "IQF",
-    subtitle: "Individual Quick Freezing",
-    description:
-      "Our IQF technology freezes products in minutes, preventing large ice crystal formation. This preserves shape, color, smell, and taste after defrost, while allowing consumers to use exact quantities needed.",
-    features: [
-      "Rapid freezing process",
-      "Preserved nutrients",
-      "Individual separation",
-      "Extended shelf life",
-    ],
-    image: "../src/assets/images/varity/frozen.webp",
-  },
-];
-
-export default function AgriculturalShowcase() {
+const AgriculturalShowcase = () => {
+  const { products: varityProducts } = useProducts();
+  const products = [
+    {
+      id: "citrus",
+      title: "CITRUS",
+      subtitle: "Premium Egyptian Citrus",
+      description:
+        "Citrus fruits are one of the most important products that Egypt exports to the world. Egyptian citrus fruits are distinguished by their high quality with lower levels of salinity, varying between oranges, tangerines, lemons, and grapefruits.",
+      features: [
+        "High juice content",
+        "Optimal sugar levels",
+        "Low acidity",
+        "International standards",
+      ],
+      image: "../src/assets/images/varity/oranges.webp",
+    },
+    {
+      id: "fresh-fruits",
+      title: "FRESH FRUITS",
+      subtitle: "Organically Grown Excellence",
+      description:
+        "Furoy provides high-quality fresh fruits from cultivation to packaging. We offer grapes, pomegranates, and figs, following international specifications to preserve fruits with their full specifications without defects.",
+      features: [
+        "EU approved pesticides",
+        "International quality standards",
+        "Perfect ripeness",
+        "Export ready",
+      ],
+      image: "../src/assets/images/varity/fruits.webp",
+    },
+    {
+      id: "vegetables",
+      title: "VEGETABLES",
+      subtitle: "Farm Fresh Quality",
+      description:
+        "Our fresh vegetables including potatoes, onions, tomatoes, and peppers are cultivated using the latest agricultural methods. We ensure products are free of pesticide residues and heavy metals through certified examination.",
+      features: [
+        "Pesticide residue free",
+        "Heavy metal tested",
+        "Safe packaging materials",
+        "Food safety certified",
+      ],
+      image: "../src/assets/images/varity/vegetables.webp",
+    },
+    {
+      id: "iqf",
+      title: "IQF",
+      subtitle: "Individual Quick Freezing",
+      description:
+        "Our IQF technology freezes products in minutes, preventing large ice crystal formation. This preserves shape, color, smell, and taste after defrost, while allowing consumers to use exact quantities needed.",
+      features: [
+        "Rapid freezing process",
+        "Preserved nutrients",
+        "Individual separation",
+        "Extended shelf life",
+      ],
+      image: "../src/assets/images/varity/frozen.webp",
+    },
+  ];
   const [activeProduct, setActiveProduct] = useState(0);
 
   return (
@@ -195,4 +196,6 @@ export default function AgriculturalShowcase() {
       </div>
     </section>
   );
-}
+};
+
+export default AgriculturalShowcase;

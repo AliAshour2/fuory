@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Users, Globe2, ShoppingBasket, Calendar } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, animate } from "framer-motion";
 
 type CounterProps = {
   end: number;
@@ -14,27 +14,21 @@ const Counter = ({
   end,
   label,
   Icon,
-  duration = 2000,
+  duration = 2,
   delay = 0,
 }: CounterProps) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;
-    const increment = end / (duration / 16);
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        clearInterval(timer);
-        setCount(end);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, [end, duration]);
+    const controls = animate(0, end, {
+      duration,
+      delay,
+      onUpdate(value) {
+        setCount(Math.floor(value));
+      },
+    });
+    return () => controls.stop();
+  }, [end, duration, delay]);
 
   return (
     <motion.div

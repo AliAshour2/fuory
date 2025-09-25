@@ -1,7 +1,7 @@
 interface CarouselCardProps {
   image: string;
   name: string;
-  description: string;
+  description?: string;
 }
 
 const CarouselCard = ({ image, name, description }: CarouselCardProps) => {
@@ -19,7 +19,9 @@ const CarouselCard = ({ image, name, description }: CarouselCardProps) => {
           <h3 className="text-3xl font-bold mb-2 text-white font-bebas">
             {name}
           </h3>
-          <p className="text-gray-200 font-bebas">{description}</p>
+          {description && (
+            <p className="text-gray-200 font-bebas">{description}</p>
+          )}
         </div>
       </div>
     </div>
