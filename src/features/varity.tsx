@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useProducts } from "@/contexts/ProductsContext";
 
 const AgriculturalShowcase = () => {
-  const { products: varityProducts } = useProducts();
   const products = [
     {
       id: "citrus",

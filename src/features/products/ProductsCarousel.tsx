@@ -5,7 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useProducts } from "@/contexts/ProductsContext";
+import { useProducts } from "@/hooks/useProducts";
 import pattern from "@/assets/images/patterns/pattern.webp";
 import CarouselCard from "@/components/carsoul-card/CarouselCard";
 
@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 
 const ProductsCarousel = () => {
   const { products } = useProducts();
+  const allProducts = [...products.fruits, ...products.vegetables];
   return (
     <section
       id="products"
@@ -32,7 +33,7 @@ const ProductsCarousel = () => {
         </motion.h2>
         <Carousel className="w-full">
           <CarouselContent>
-            {products.map((product) => (
+            {allProducts.map((product) => (
               <CarouselItem
                 key={product.id}
                 className="md:basis-1/2 lg:basis-1/3 animate-fade-up "

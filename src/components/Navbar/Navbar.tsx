@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   // Detect scroll for navbar style change
   useEffect(() => {
@@ -15,9 +17,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home", delay: 0.1 },
-    { name: "Products", href: "#products", delay: 0.2 },
-    { name: "Frozen", href: "#frozen", delay: 0.3 },
+    { name: "Home", href: "/", delay: 0.1 },
+    { name: "Products", href: "/products", delay: 0.2 },
+    { name: "Frozen", href: "/#frozen", delay: 0.3 },
   ];
 
   return (
@@ -37,33 +39,64 @@ const Navbar = () => {
           animate={{ scale: scrolled ? 0.85 : 1 }}
           className="flex items-center h-16 w-16 flex-shrink-0 transition-all duration-300"
         >
-          <img
-            src="src/assets/images/logos/fuory-logo.webp"
-            className="w-full h-full object-contain"
-            alt="fuory logo"
-          />
+          <Link to="/">
+            <img
+              src="/src/assets/images/logos/fuory-logo.webp"
+              className="w-full h-full object-contain"
+              alt="fuory logo"
+            />
+          </Link>
         </motion.div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4">
-          {navLinks.map((link) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: link.delay }}
-              className="relative px-4 py-2 text-lg font-light text-gray-800
+          {navLinks.map((link) => {
+            const isHomePage = location.pathname === "/";
+            const isAnchorLink = link.href.startsWith("/#");
+
+            if (isHomePage && isAnchorLink) {
+              return (
+                <motion.a
+                  key={link.name}
+                  href={link.href.replace("/", "")}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: link.delay }}
+                  className="relative px-4 py-2 text-lg font-light text-gray-800
                         hover:text-emerald-600 transition-colors duration-200"
-            >
-              {link.name}
-              <motion.span
-                className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
-          ))}
+                >
+                  {link.name}
+                  <motion.span
+                    className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
+              );
+            }
+
+            return (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: link.delay }}
+              >
+                <Link
+                  to={link.href}
+                  className="relative px-4 py-2 text-lg font-light text-gray-800
+                        hover:text-emerald-600 transition-colors duration-200"
+                >
+                  {link.name}
+                  <motion.span
+                    className="absolute left-0 -bottom-1 w-0 h-[2px] bg-emerald-600"
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Link>
+              </motion.div>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA */}
@@ -132,17 +165,21 @@ const Navbar = () => {
           >
             <nav className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link) => (
-                <motion.a
+                <motion.div
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: link.delay, duration: 0.4 }}
-                  className="text-3xl font-light text-gray-800 hover:text-emerald-600 transition-colors"
+                  className="text-center"
                 >
-                  {link.name}
-                </motion.a>
+                  <Link
+                    to={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-3xl font-light text-gray-800 hover:text-emerald-600 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
               <motion.a
                 href="#contact"
