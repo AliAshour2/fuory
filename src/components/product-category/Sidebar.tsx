@@ -35,7 +35,7 @@ const Sidebar = ({
             <button
               onClick={() => setSelectedCategory(category)}
               className={`w-full text-2xl text-left text-gray-700 hover:text-green-500 ${
-                selectedCategory === category ? "font-bold" : ""
+                selectedCategory === category ? "font-bold text-green-500" : ""
               }`}
             >
               {category}

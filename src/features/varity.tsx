@@ -17,6 +17,7 @@ const AgriculturalShowcase = () => {
         "International standards",
       ],
       image: "../src/assets/images/varity/oranges.webp",
+      alt: "Premium Egyptian Citrus fruits including oranges, tangerines, lemons, and grapefruits for export",
     },
     {
       id: "fresh-fruits",
@@ -31,13 +32,14 @@ const AgriculturalShowcase = () => {
         "Export ready",
       ],
       image: "../src/assets/images/varity/fruits.webp",
+      alt: "Fresh Egyptian fruits including grapes, pomegranates,watermelons, mango, strawberry, Cantaloupe, Melon, Kiwi, Tangerine, Mandarin, sweetpotato and figs for export",
     },
     {
       id: "vegetables",
       title: "VEGETABLES",
       subtitle: "Farm Fresh Quality",
       description:
-        "Our fresh vegetables including potatoes, onions, tomatoes, and peppers are cultivated using the latest agricultural methods. We ensure products are free of pesticide residues and heavy metals through certified examination.",
+        "Our fresh vegetables including potatoes, sweetpotato, Carrot, Beans,Cabbage, Broccoli, Cucumber, onions, tomatoes, and peppers are cultivated using the latest agricultural methods. We ensure products are free of pesticide residues and heavy metals through certified examination.",
       features: [
         "Pesticide residue free",
         "Heavy metal tested",
@@ -59,6 +61,7 @@ const AgriculturalShowcase = () => {
         "Extended shelf life",
       ],
       image: "../src/assets/images/varity/frozen.webp",
+      alt: "Egyptian frozen fruits and vegetables using IQF technology for export",
     },
   ];
   const [activeProduct, setActiveProduct] = useState(0);
@@ -182,11 +185,12 @@ const AgriculturalShowcase = () => {
             <div className="relative overflow-hidden rounded-2xl bg-white/40 backdrop-blur-sm border border-green-200 shadow-lg">
               <motion.img
                 src={products[activeProduct].image || "/placeholder.svg"}
-                alt={products[activeProduct].title}
+                alt={products[activeProduct].alt}
                 className="w-full h-[500px] object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: false }}
+                loading="lazy"
               />
             </div>
           </motion.div>

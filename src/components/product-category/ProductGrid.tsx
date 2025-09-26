@@ -17,7 +17,7 @@ const ProductGrid = ({
 }: ProductGridProps) => {
   return (
     <main className="w-full md:w-3/4 p-8">
-      <h1 className="text-2xl md:text-9xl  mb-2 text-green-500 font-veneer">
+      <h1 className="text-6xl md:text-9xl  mb-2 text-green-500 font-veneer">
         {category.toUpperCase()}
       </h1>
       <p className="text-gray-600 mb-4">
