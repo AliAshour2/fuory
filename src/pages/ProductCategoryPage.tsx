@@ -6,35 +6,30 @@ import ProductGrid from "@/components/product-category/ProductGrid";
 
 const ProductCategoryPage = () => {
   const { products: productData } = useProducts();
-  const allProducts = useMemo(
-    () => [...productData.fruits, ...productData.vegetables],
-    [productData]
-  );
-
+  
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("fruit");
+  const [selectedCategory, setSelectedCategory] = useState("Fruit");
   const [sortOrder, setSortOrder] = useState("default");
 
-  const categories = ["Fruit", "Vegetables", "Frozen", "Seasonings"];
+  const categories = ["Fruit", "Vegetables"];
 
   const filteredProducts = useMemo(() => {
+    // Determine which products to show based on category
     let products: Product[] = [];
-
-    if (selectedCategory === "fruit") {
+    if (selectedCategory === "Fruit") {
       products = productData.fruits;
-    } else if (selectedCategory === "vegetables") {
+    } else if (selectedCategory === "Vegetables") {
       products = productData.vegetables;
-    } else {
-      // For now, other categories will show all products
-      products = allProducts;
     }
 
+    // Apply search filter
     if (searchTerm) {
       products = products.filter((product) =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
+    // Apply sorting
     if (sortOrder === "asc") {
       products.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOrder === "desc") {
@@ -42,7 +37,7 @@ const ProductCategoryPage = () => {
     }
 
     return products;
-  }, [allProducts, productData, selectedCategory, searchTerm, sortOrder]);
+  }, [productData, selectedCategory, searchTerm, sortOrder]);
 
   return (
     <div className="flex flex-col md:flex-row pt-24">
