@@ -47,6 +47,7 @@ const AgriculturalShowcase = () => {
         "Food safety certified",
       ],
       image: "../src/assets/images/varity/vegetables.webp",
+      alt: "Fresh Egyptian vegetables including potatoes, sweetpotato, carrot, beans, cabbage, broccoli, cucumber, onions, tomatoes, and peppers for export",
     },
     {
       id: "iqf",
@@ -91,8 +92,9 @@ const AgriculturalShowcase = () => {
         {/* Header */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <p className="text-green-600 text-6xl font-veneer font-medium tracking-wider uppercase mb-4">
@@ -107,9 +109,9 @@ const AgriculturalShowcase = () => {
         {/* Product Navigation */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
           {products.map((product, index) => (
@@ -134,9 +136,9 @@ const AgriculturalShowcase = () => {
           <motion.div
             key={products[activeProduct].id}
             initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="space-y-8"
           >
             <div>
@@ -157,7 +159,6 @@ const AgriculturalShowcase = () => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  viewport={{ once: false }}
                   className="rounded-xl border border-green-200 bg-white/60 backdrop-blur-sm p-4 shadow-sm"
                 >
                   <p className="text-sm font-medium text-gray-700">{feature}</p>
@@ -177,9 +178,9 @@ const AgriculturalShowcase = () => {
           <motion.div
             key={products[activeProduct].image}
             initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+            whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="relative"
           >
             <div className="relative overflow-hidden rounded-2xl bg-white/40 backdrop-blur-sm border border-green-200 shadow-lg">
@@ -189,7 +190,6 @@ const AgriculturalShowcase = () => {
                 className="w-full h-[500px] object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: false }}
                 loading="lazy"
               />
             </div>
