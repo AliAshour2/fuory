@@ -1,7 +1,6 @@
-
-import { Card, CardContent } from "@/components/ui/card";
 import type { StorageAdvice } from "@/types/product";
-import { Thermometer, Store } from "lucide-react";
+import { Thermometer } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface StorageAdviceSectionProps {
   storageAdvice: StorageAdvice;
@@ -9,47 +8,54 @@ interface StorageAdviceSectionProps {
 
 export const StorageAdviceSection = ({ storageAdvice }: StorageAdviceSectionProps) => {
   return (
-    <div className="bg-natures-purple py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center gap-4 mb-12">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-            <Thermometer className="h-8 w-8 text-natures-purple" />
-          </div>
-          <h2 className="text-4xl font-bold text-white uppercase tracking-wide">
+    <section className="py-20 bg-gradient-to-br from-green-50 to-green-100">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start gap-12">
+        {/* Left Icon */}
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <Thermometer className="w-60 h-60 text-green-600" strokeWidth={2.5} />
+        </motion.div>
+
+        {/* Right Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <h2 className="text-6xl font-veneer text-green-700 uppercase mb-8 tracking-wide">
             Storage Advice
           </h2>
-        </div>
+          <ul className="space-y-5 text-lg text-green-900">
+            <motion.li
+              className="flex items-start gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: false }}
+            >
+              <span className="mt-2 w-2 h-2 rounded-full bg-green-700"></span>
+              <span>{storageAdvice.transport}</span>
+            </motion.li>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card className="bg-white/10 border-white/20">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-4 mb-4">
-                <Thermometer className="h-6 w-6 text-natures-lime" />
-                <h3 className="text-xl font-semibold text-white">
-                  Transport and Storage
-                </h3>
-              </div>
-              <p className="text-white/90 leading-relaxed">
-                {storageAdvice.transport}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-white/10 border-white/20">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-4 mb-4">
-                <Store className="h-6 w-6 text-natures-lime" />
-                <h3 className="text-xl font-semibold text-white">
-                  Shop Storage
-                </h3>
-              </div>
-              <p className="text-white/90 leading-relaxed">
-                {storageAdvice.shop}
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+            <motion.li
+              className="flex items-start gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: false }}
+            >
+              <span className="mt-2 w-2 h-2 rounded-full bg-green-700"></span>
+              <span>{storageAdvice.shop}</span>
+            </motion.li>
+          </ul>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
-}
+};

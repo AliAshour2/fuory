@@ -11,6 +11,7 @@ import Footer from "./components/footer/Footer";
 import ContactUs from "./features/contact-us/ContactUs";
 import AgriculturalShowcase from "./features/varity";
 import ProductCategoryPage from "./pages/ProductCategoryPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           }
         />
         <Route path="/products" element={<ProductCategoryPage />} />
+        <Route path="/products/:id" element={<ProductDetailsPage />} />
       </Routes>
       <Footer />
     </div>
