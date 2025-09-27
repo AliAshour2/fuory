@@ -25,6 +25,32 @@ export const products = [
     description: "Fresh and healthy sweet potatoes",
     alt: "Egyptian Sweet Potato for export",
     category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true }
+    ],
+    storageAdvice: {
+      transport: "Transport at ambient temperature between 13-15°C",
+      shop: "Store in a cool, dry place away from direct sunlight"
+    },
+    growingInfo: {
+      title: "Premium Sweet Potatoes from Egypt",
+      description: "Our sweet potatoes are grown in the fertile soils of Egypt, where the perfect climate conditions allow for year-round cultivation. We use sustainable farming practices to ensure the best quality and taste."
+    },
+    packagingOptions: [
+      { id: "p1", name: "Standard Box", weight: "10kg", dimensions: "40x30x25cm" },
+      { id: "p2", name: "Bulk Box", weight: "20kg", dimensions: "60x40x30cm" }
+    ]
   },
   {
     id: 3,
@@ -81,6 +107,33 @@ export const products = [
     alt: "Egyptian Tomato for export",
     description: "Fresh and ripe tomatoes",
     category: "vegetable",
+    availability: [
+      { month: "Jan", available: false },
+      { month: "Feb", available: false },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: false },
+      { month: "Dec", available: false }
+    ],
+    storageAdvice: {
+      transport: "Transport at 10-12°C",
+      shop: "Store at room temperature away from direct sunlight. Do not refrigerate as this affects taste."
+    },
+    growingInfo: {
+      title: "Premium Egyptian Tomatoes",
+      description: "Our tomatoes are grown in advanced greenhouses across Egypt's fertile regions. We employ sustainable farming practices and carefully monitor growth conditions to ensure premium quality, flavor, and appearance."
+    },
+    packagingOptions: [
+      { id: "p1", name: "Standard Carton", weight: "5kg", dimensions: "30x20x15cm" },
+      { id: "p2", name: "Premium Box", weight: "10kg", dimensions: "40x30x20cm" },
+      { id: "p3", name: "Bulk Container", weight: "20kg", dimensions: "60x40x30cm" }
+    ]
   },
   {
     id: 1,
