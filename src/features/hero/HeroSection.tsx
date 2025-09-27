@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section id="home" className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
 
       <img

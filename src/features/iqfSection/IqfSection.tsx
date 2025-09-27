@@ -12,7 +12,7 @@ import { IqfProducts } from "@/constants/products"
 
 export default function IQF_Section() {
   return (
-    <section id="frozen" className="bg-[url('../src/assets/images/backgrounds/iqf.webp')] max-h-[620px] bg-cover bg-center bg-no-repeat relative">
+    <section id="iqf" className="bg-[url('../src/assets/images/backgrounds/iqf.webp')] max-h-[620px] bg-cover bg-center bg-no-repeat relative">
       <div className="absolute inset-0"></div>
 
       <div className="relative z-10 min-h-[80vh] flex items-center justify-center sm:justify-end p-4 sm:p-8">

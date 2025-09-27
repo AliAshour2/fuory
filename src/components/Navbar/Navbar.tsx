@@ -17,9 +17,9 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/", delay: 0.1 },
+    { name: "Home", href: "/#home", delay: 0.1 },
     { name: "Products", href: "/products", delay: 0.2 },
-    { name: "Frozen", href: "/#frozen", delay: 0.3 },
+    { name: "Frozen", href: "/#iqf", delay: 0.3 }, // Updated href to match section ID
   ];
 
   return (
@@ -58,12 +58,12 @@ const Navbar = () => {
               return (
                 <motion.a
                   key={link.name}
-                  href={link.href.replace("/", "")}
+                  href={link.href.substring(1)} // Remove the leading "/" from the href
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: link.delay }}
                   className="relative px-4 py-2 text-lg font-light text-gray-800
-                        hover:text-emerald-600 transition-colors duration-200"
+                  hover:text-emerald-600 transition-colors duration-200"
                 >
                   {link.name}
                   <motion.span
