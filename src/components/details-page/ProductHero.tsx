@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/types/product";
-import { ChevronDown, Sparkles, Leaf } from "lucide-react";
+import { ChevronDown, Sparkles} from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Section {
@@ -28,7 +28,7 @@ export function ProductHero({
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-white via-green-50/30 to-natures-pink/20 overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating shapes */}
@@ -45,22 +45,6 @@ export function ProductHero({
           className="absolute bottom-20 right-10 w-96 h-96 bg-natures-pink/15 rounded-full blur-3xl"
         />
         
-        {/* Animated leaves */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 left-5 text-green-300/40"
-        >
-          <Leaf className="w-8 h-8" />
-        </motion.div>
-
       </div>
 
       {/* Hero Content */}
