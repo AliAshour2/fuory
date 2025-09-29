@@ -114,12 +114,12 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
                       scale: { duration: 0.4 },
                       rotateY: { duration: 0.5 }
                     }}
-                    className="w-full h-full"
+                    className="w-full h-96"
                   >
                     <img
                       src={currentVariety.image}
                       alt={currentVariety.name}
-                      className="w-full h-full object-contain p-6 transform transition-transform duration-700 hover:scale-105"
+                      className="w-full h-full object-contain  transform transition-transform duration-400 hover:scale-105"
                     />
                   </motion.div>
                 </AnimatePresence>

@@ -17,6 +17,7 @@ import frozen7 from "@/assets/images/forzen/forzen7.webp";
 import frozen8 from "@/assets/images/forzen/forzen8.webp";
 import frozen9 from "@/assets/images/forzen/forzen9.webp";
 import frozen10 from "@/assets/images/forzen/forzen10.webp";
+
 export const products = [
   {
     id: 9,
@@ -39,10 +40,21 @@ export const products = [
       { month: "Nov", available: true },
       { month: "Dec", available: true }
     ],
-    varieties: [
-      { id: "v1", name: "Beuaregard",  image: '@/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp' },
-      { id: "v2", name: "Standard Sweet Potato"}
-    ],
+varieties: [
+  { 
+    id: "v1", 
+    name: "Beauregard",  
+    image: "/src/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp",
+    alt: "Beauregard sweet potato – premium Egyptian variety with rich taste"
+  },
+  { 
+    id: "v2", 
+    name: "Bellevue", 
+    image: "/src/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp",
+    alt: "Bellevue sweet potato – high-quality Egyptian variety with excellent texture"
+  },
+],
+
     storageAdvice: {
       transport: "Transport at ambient temperature between 13-15°C",
       shop: "Store in a cool, dry place away from direct sunlight"
