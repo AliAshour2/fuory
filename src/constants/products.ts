@@ -63,10 +63,25 @@ varieties: [
       title: "Premium Sweet Potatoes from Egypt",
       description: "Our sweet potatoes are grown in the fertile soils of Egypt, where the perfect climate conditions allow for year-round cultivation. We use sustainable farming practices to ensure the best quality and taste."
     },
-    packagingOptions: [
-      { id: "p1", name: "Standard Box", weight: "10kg", dimensions: "40x30x25cm" },
-      { id: "p2", name: "Bulk Box", weight: "20kg", dimensions: "60x40x30cm" }
-    ]
+packagingOptions: [
+  { 
+    id: "p1", 
+    name: "Carton Box", 
+    image: "/src/assets/images/packing/sweetpotato/carton.webp",
+    alt: "corrugated carton box for fresh sweet potatoes packaging 4",
+    weight: "10kg", 
+    dimensions: "40x30x25cm" 
+  },
+  { 
+    id: "p2", 
+    name: "Plastic Box",
+    image: "/src/assets/images/packing/sweetpotato/plastic.webp",
+    alt: "reusable plastic crate for bulk sweet potatoes transport ",
+    weight: "20kg", 
+    dimensions: "60x40x30cm" 
+  }
+]
+
   },
   {
     id: 3,

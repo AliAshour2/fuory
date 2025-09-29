@@ -63,6 +63,8 @@ export interface PackagingOption {
   name: string;
   image: string;
   description: string;
+  alt?: string;
+  
 }
 
 export interface Recipe {

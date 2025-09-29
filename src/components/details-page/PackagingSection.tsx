@@ -93,7 +93,7 @@ export function PackagingSection({ packagingOptions }: PackagingSectionProps) {
             </span>
             <Sparkles className="w-4 h-4 text-green-600 fill-current" />
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-veneer text-green-600 mb-3 uppercase tracking-wide bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-veneer text-green-600 mb-3 uppercase tracking-wide bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text">
             Packaging Options
           </h2>
         </motion.div>
