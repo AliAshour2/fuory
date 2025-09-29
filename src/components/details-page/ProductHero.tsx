@@ -180,20 +180,8 @@ export function ProductHero({
             viewport={{ once: true }}
             className="relative flex justify-center"
           >
-            <div className="relative">
-              {/* Glow effect */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-3xl blur-2xl -z-10"
-              />
+
+
               
               {/* Image container */}
               <motion.div
@@ -202,7 +190,7 @@ export function ProductHero({
                   rotateY: 5 
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative h-96 w-full max-w-lg rounded-3xl overflow-hidden bg-white/80 backdrop-blur-sm border-2 border-white/50 shadow-2xl shadow-green-500/10"
+                className="relative h-96 w-full max-w-lg overflow-hidden "
               >
                 <img
                   src={product.image}
@@ -212,7 +200,7 @@ export function ProductHero({
                 
 
               </motion.div>
-            </div>
+
           </motion.div>
         </div>
 
