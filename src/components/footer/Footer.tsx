@@ -1,6 +1,5 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
-import { Button } from "../ui/button"
-
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
@@ -10,11 +9,18 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6 animate-fade-in-up [animation-delay:0ms]">
             <div className="flex items-center h-20 w-20 transform hover:scale-110 transition-transform duration-300">
-              <img src="src/assets/images/logos/fuory-logo.webp" className="w-full h-full object-contain" alt="fuory logo" />
+              <img
+                src="src/assets/images/logos/fuory-logo.webp"
+                className="w-full h-full object-contain"
+                alt="fuory logo"
+              />
             </div>
             <p className="font-sans text-base text-gray-100 leading-relaxed">
               Fuory Company has been established in the Egyptian market since{" "}
-              <span className="text-lime-400 font-semibold animate-pulse">2015</span>.
+              <span className="text-lime-400 font-semibold animate-pulse">
+                2015
+              </span>
+              .
             </p>
 
             {/* Social Icons */}
@@ -50,12 +56,18 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {["About", "Packing & Shipping", "Gallery"].map((link, i) => (
-                <li key={i} className="animate-fade-in-left" style={{ animationDelay: `${400 + i * 100}ms` }}>
+                <li
+                  key={i}
+                  className="animate-fade-in-left"
+                  style={{ animationDelay: `${400 + i * 100}ms` }}
+                >
                   <a
                     href="#"
                     className="flex items-center gap-2 text-lime-400 hover:text-white transition-all duration-300 hover:translate-x-2 group"
                   >
-                    <span className="text-lime-400 group-hover:animate-bounce">→</span>
+                    <span className="text-lime-400 group-hover:animate-bounce">
+                      →
+                    </span>
                     {link}
                   </a>
                 </li>
@@ -69,14 +81,31 @@ const Footer = () => {
               Direct Contact?
             </h3>
             <ul className="space-y-3">
-              {["Send an email", "Call +201010101972", "Contact form", "Alexandria - Egypt"].map((contact, i) => (
+              {[
+                { label: "Send an email", href: "mailto:example@email.com" },
+                {
+                  label: "Call +201010101972",
+                  href: "https://wa.me/201010101972",
+                }, // WhatsApp chat
+                { label: "Contact form", href: "/contact" },
+                { label: "Alexandria - Egypt", href: "#" },
+              ].map((contact, i) => (
                 <li
                   key={i}
                   className="flex items-center gap-2 animate-fade-in-left group hover:translate-x-2 transition-transform duration-300"
                   style={{ animationDelay: `${600 + i * 100}ms` }}
                 >
-                  <span className="text-lime-400 group-hover:animate-bounce">→</span>
-                  <p className="text-gray-100 hover:text-lime-400 transition-colors cursor-pointer">{contact}</p>
+                  <span className="text-lime-400 group-hover:animate-bounce">
+                    →
+                  </span>
+                  <a
+                    href={contact.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-100 hover:text-lime-400 transition-colors cursor-pointer"
+                  >
+                    {contact.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -92,33 +121,43 @@ const Footer = () => {
               More Fuory info
             </h3>
             <ul className="space-y-3 text-gray-100">
-              {["Certifications", "Careers", "FAQ", "Sustainability"].map((item, i) => (
-                <li
-                  key={i}
-                  className="hover:text-lime-400 cursor-pointer transition-all duration-300 hover:translate-x-2 animate-fade-in-left"
-                  style={{ animationDelay: `${800 + i * 100}ms` }}
-                >
-                  {item}
-                </li>
-              ))}
+              {["Certifications", "Careers", "FAQ", "Sustainability"].map(
+                (item, i) => (
+                  <li
+                    key={i}
+                    className="hover:text-lime-400 cursor-pointer transition-all duration-300 hover:translate-x-2 animate-fade-in-left"
+                    style={{ animationDelay: `${800 + i * 100}ms` }}
+                  >
+                    {item}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-gray-600 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-white animate-fade-in-up [animation-delay:1000ms]">
-          <p>© {new Date().getFullYear()} Fuory Company. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Fuory Company. All rights reserved.
+          </p>
           <div className="flex gap-6 mt-3 md:mt-0">
-            <a href="#" className="hover:text-lime-400 transition-all duration-300 hover:scale-110">
+            <a
+              href="#"
+              className="hover:text-lime-400 transition-all duration-300 hover:scale-110"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-lime-400 transition-all duration-300 hover:scale-110">
+            <a
+              href="#"
+              className="hover:text-lime-400 transition-all duration-300 hover:scale-110"
+            >
               Terms of Service
             </a>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
