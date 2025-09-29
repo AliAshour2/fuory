@@ -53,12 +53,12 @@ const ProductGrid = ({
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {products.map((product) => (
           <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              image={product.image}
-              description={product.description}
-            />
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            image={product.image}
+            description={product.description}
+          />
         ))}
       </div>
     </main>

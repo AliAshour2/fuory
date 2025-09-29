@@ -5,57 +5,65 @@ import type { Product } from "@/types/product";
 
 // Import detail page components
 import { ProductHero } from "@/components/details-page/ProductHero";
-import { SectionNavigation } from "@/components/details-page/SectionNavigation";
 import { AvailabilitySection } from "@/components/details-page/AvailabilitySection";
 import { PackagingSection } from "@/components/details-page/PackagingSection";
 import { StorageAdviceSection } from "@/components/details-page/StorageAdviceSection";
 import { GrowingInfoSection } from "@/components/details-page/GrowingInfoSection";
 import { VarietiesSection } from "@/components/details-page/VarietiesSection";
 
-// Dummy data generator
+// Enhanced dummy data generator with rich content
 const generateDummyData = (product: Product): Product => {
+  const productType = product.name.toLowerCase();
+  const isEgyptianProduct = productType.includes('mango') || productType.includes('orange') || productType.includes('grape');
+  
   return {
     ...product,
     availability: product.availability || [
-      { month: "Jan", available: true },
-      { month: "Feb", available: true },
-      { month: "Mar", available: false },
-      { month: "Apr", available: false },
+      { month: "Jan", available: isEgyptianProduct ? true : false },
+      { month: "Feb", available: isEgyptianProduct ? true : false },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
       { month: "May", available: true },
       { month: "Jun", available: true },
       { month: "Jul", available: true },
       { month: "Aug", available: true },
       { month: "Sep", available: true },
-      { month: "Oct", available: false },
-      { month: "Nov", available: false },
-      { month: "Dec", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: isEgyptianProduct ? true : false },
+      { month: "Dec", available: isEgyptianProduct ? true : false },
     ],
     storageAdvice: product.storageAdvice || {
-      transport: "Transport at ambient temperature between 13-15°C. Maintain proper ventilation and avoid direct sunlight during transportation.",
-      shop: "Store in a cool, dry place away from direct sunlight. Keep at room temperature for best quality and flavor.",
+      transport: `Transport ${productType} at optimal temperature between 12-15°C. Ensure proper ventilation and protect from direct sunlight. Use specialized containers to maintain freshness during long-distance shipping.`,
+      shop: `Store ${productType} in a cool, well-ventilated area away from direct sunlight. Maintain consistent temperature and humidity levels for maximum shelf life. Display attractively to enhance customer appeal.`,
     },
     growingInfo: product.growingInfo || {
-      title: `Premium ${product.name} from Egypt`,
-      description: `Our ${product.name.toLowerCase()} is grown in the fertile soils of Egypt, where perfect climate conditions allow for optimal cultivation. We use sustainable farming practices to ensure the best quality and taste.`,
+      title: `Premium ${product.name} - Sustainably Grown in Egypt`,
+      description: `Our exceptional ${productType} is cultivated in the nutrient-rich Nile Delta region of Egypt, where optimal climate conditions and traditional farming expertise combine to produce superior quality fruit. We partner with local farmers who use sustainable agricultural practices, ensuring environmental responsibility while delivering the finest taste and nutritional value. Each ${productType} is hand-selected at peak ripeness to guarantee exceptional quality and flavor.`,
     },
     packagingOptions: product.packagingOptions || [
       {
         id: "1",
-        name: "Retail Pack",
+        name: "EAT ME Retail Pack",
         image: product.image,
-        description: "Perfect for retail stores and small businesses",
+        description: `You can order ready-to-eat EAT ME ${productType} in various packaging. Loose per package of approximately 4 kg and in a 2-pack.`,
       },
       {
         id: "2",
-        name: "Bulk Pack",
+        name: "Premium Gift Box",
         image: product.image,
-        description: "Ideal for restaurants and food service",
+        description: `Luxurious presentation box perfect for gifting, featuring our finest ${productType} with elegant branding and protective packaging.`,
       },
       {
         id: "3",
-        name: "Export Pack",
+        name: "Bulk Commercial Pack",
         image: product.image,
-        description: "Specially designed for international shipping",
+        description: `Large volume packaging designed for restaurants, hotels, and food service providers, ensuring freshness and cost-effectiveness.`,
+      },
+      {
+        id: "4",
+        name: "Export International Pack",
+        image: product.image,
+        description: `Specially designed for international shipping with extended shelf life packaging and compliance with global food safety standards.`,
       },
     ],
     varieties: product.varieties || [
@@ -63,13 +71,19 @@ const generateDummyData = (product: Product): Product => {
         id: "1",
         name: `Premium ${product.name}`,
         image: product.image,
-        description: "Our premium variety with exceptional taste and quality",
+        description: `Our flagship variety featuring exceptional sweetness and perfect texture. Carefully selected for superior taste and visual appeal.`,
       },
       {
         id: "2",
         name: `Organic ${product.name}`,
         image: product.image,
-        description: "Organically grown for health-conscious consumers",
+        description: `Certified organic variety grown without synthetic pesticides or fertilizers. Perfect for health-conscious consumers seeking natural goodness.`,
+      },
+      {
+        id: "3",
+        name: `Export Grade ${product.name}`,
+        image: product.image,
+        description: `Premium export quality with extended shelf life and superior packaging. Meets international standards for global distribution.`,
       },
     ],
   };
@@ -126,52 +140,53 @@ const ProductDetailsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Product Hero Section */}
-      <section id="hero">
-        <ProductHero
-          product={product}
-          sections={sections}
-          onNavigateToSection={handleNavigateToSection}
-        />
-      </section>
-
-
-
-      {/* Availability Section */}
-      {product.availability && (
-        <section id="availability">
-          <AvailabilitySection availability={product.availability} />
+    <div className="min-h-screen  overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <section id="hero" className="mb-8 sm:mb-12 lg:mb-16">
+          <ProductHero
+            product={product}
+            sections={sections}
+            onNavigateToSection={handleNavigateToSection}
+          />
         </section>
-      )}
 
-      {/* Varieties Section */}
-      {product.varieties && (
-        <section id="varieties">
-          <VarietiesSection varieties={product.varieties} />
-        </section>
-      )}
+        {/* Availability Section */}
+        {product.availability && (
+          <section id="availability" className="mb-8 sm:mb-12 lg:mb-16">
+            <AvailabilitySection availability={product.availability} />
+          </section>
+        )}
 
-      {/* Growing Info Section */}
-      {product.growingInfo && (
-        <section id="growing-info">
-          <GrowingInfoSection growingInfo={product.growingInfo} />
-        </section>
-      )}
+        {/* Varieties Section */}
+        {product.varieties && (
+          <section id="varieties" className="mb-8 sm:mb-12 lg:mb-16">
+            <VarietiesSection varieties={product.varieties} />
+          </section>
+        )}
 
-      {/* Packaging Section */}
-      {product.packagingOptions && (
-        <section id="packaging">
-          <PackagingSection packagingOptions={product.packagingOptions} />
-        </section>
-      )}
+        {/* Growing Info Section */}
+        {product.growingInfo && (
+          <section id="growing-info" className="mb-8 sm:mb-12 lg:mb-16">
+            <GrowingInfoSection growingInfo={product.growingInfo} />
+          </section>
+        )}
 
-      {/* Storage Advice Section */}
+        {/* Packaging Section */}
+        {product.packagingOptions && (
+          <section id="packaging" className="mb-8 sm:mb-12 lg:mb-16">
+            <PackagingSection packagingOptions={product.packagingOptions} />
+          </section>
+        )}
+
+        {/* Storage Advice Section */}
+        
+      </div>
       {product.storageAdvice && (
-        <section id="storage">
-          <StorageAdviceSection storageAdvice={product.storageAdvice} />
-        </section>
-      )}
+          <section id="storage" className="">
+            <StorageAdviceSection storageAdvice={product.storageAdvice} />
+          </section>
+        )}
     </div>
   );
 };

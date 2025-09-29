@@ -39,6 +39,10 @@ export const products = [
       { month: "Nov", available: true },
       { month: "Dec", available: true }
     ],
+    varieties: [
+      { id: "v1", name: "Beuaregard",  image: '@/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp' },
+      { id: "v2", name: "Standard Sweet Potato"}
+    ],
     storageAdvice: {
       transport: "Transport at ambient temperature between 13-15°C",
       shop: "Store in a cool, dry place away from direct sunlight"

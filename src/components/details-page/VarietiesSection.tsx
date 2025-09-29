@@ -22,8 +22,8 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
   const currentVariety = varieties[currentIndex];
 
   return (
-    <section className="relative w-full h-screen flex items-center">
-      <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-8 flex flex-col justify-center">
+    <section className="relative w-full overflow-hidden py-16 sm:py-20 lg:py-24">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}

@@ -19,10 +19,10 @@ export function PackagingSection({ packagingOptions }: PackagingSectionProps) {
   };
 
   return (
-    <section className="bg-natures-cream py-16 sm:py-20 lg:py-24">
-      <div className="max-w-7xl mx-auto pe-4 sm:pe-6 lg:pe-8">
+    <section className="bg-natures-cream py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <h2 className="text-start text-8xl sm:text-4xl lg:text-8xl font-veneer text-green-600 mb-3 sm:mb-14 lg:mb-6 uppercase tracking-wide">
+        <h2 className="text-start text-6xl sm:text-4xl lg:text-8xl font-veneer text-green-600 mb-3 sm:mb-14 lg:mb-6 uppercase tracking-wide">
           Packaging Options
         </h2>
 
@@ -40,8 +40,8 @@ export function PackagingSection({ packagingOptions }: PackagingSectionProps) {
         </div>
 
         {/* Carousel */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="relative overflow-hidden rounded-2xl  p-6 sm:p-8 lg:p-10">
+        <div className="relative max-w-6xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl bg-white shadow-2xl p-8 lg:p-12">
             {/* Navigation arrows */}
             <button
               onClick={prevOption}
@@ -64,16 +64,26 @@ export function PackagingSection({ packagingOptions }: PackagingSectionProps) {
               {packagingOptions.map((option) => (
                 <div
                   key={option.id}
-                  className="w-full flex-shrink-0 flex justify-center px-4"
+                  className="w-full flex-shrink-0 grid lg:grid-cols-2 gap-8 items-center min-h-[400px]"
                 >
-                  <div className="relative w-full max-w-sm">
-                    <div className="aspect-square h-60">
-                      <img
-                        src={option.image}
-                        alt={option.name}
-                        className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-300 hover:scale-105"
-                      />
+                  {/* Image */}
+                  <div className="flex justify-center">
+                    <div className="relative w-full max-w-sm">
+                      <div className="aspect-square">
+                        <img
+                          src={option.image}
+                          alt={option.name}
+                          className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-300 hover:scale-105"
+                        />
+                      </div>
                     </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="text-center lg:text-left space-y-4">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-natures-teal">{option.name}</h3>
+                    <div className="w-20 h-1 bg-natures-teal mx-auto lg:mx-0"></div>
+                    <p className="text-gray-700 text-lg leading-relaxed">{option.description}</p>
                   </div>
                 </div>
               ))}

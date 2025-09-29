@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
   id: number;
@@ -8,16 +8,9 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ id, name, image, description }: ProductCardProps) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`/products/${id}`);
-  };
   return (
-    <div 
-      className="relative group overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100 hover:border-gray-200"
-      onClick={handleClick}
-    >
+    <Link to={`/products/${id}`} className="block">
+      <div className="relative group overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100 hover:border-gray-200">
       {/* Image */}
       <div className="relative h-80 w-full overflow-hidden">
         <img
@@ -52,6 +45,7 @@ const ProductCard = ({ id, name, image, description }: ProductCardProps) => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
       </div>
     </div>
+    </Link>
   );
 };
 

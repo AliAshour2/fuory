@@ -1,5 +1,6 @@
 import type { AvailabilityMonth } from "@/types/product";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface AvailabilitySectionProps {
   availability: AvailabilityMonth[];
@@ -10,15 +11,36 @@ export function AvailabilitySection({ availability }: AvailabilitySectionProps) 
     <section className="bg-natures-pink py-10 sm:py-14 lg:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-veneer text-green-500 mb-12 text-center uppercase tracking-widest">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-veneer text-green-500 mb-12 text-center uppercase tracking-widest"
+        >
           Availability
-        </h2>
+        </motion.h2>
 
         {/* Grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 lg:gap-10">
+        <motion.div
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 lg:gap-10"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+        >
           {availability.map((month) => (
-            <div
+            <motion.div
               key={month.month}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+              }}
               className={`flex flex-col items-center p-4 rounded-xl shadow-sm transition-transform duration-300 ${
                 month.available
                   ? "bg-gradient-to-br from-green-100 via-green-200 to-green-50 hover:scale-105"
@@ -44,9 +66,9 @@ export function AvailabilitySection({ availability }: AvailabilitySectionProps) 
                   <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-gray-400 flex items-center justify-center" />
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
