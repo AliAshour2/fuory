@@ -108,7 +108,7 @@ const Navbar = () => {
                        text-white text-sm font-medium shadow-md hover:shadow-lg
                        transition-all duration-300"
           >
-            <a href="#contact">Get in Touch</a>
+            <a href="/contact">Get in Touch</a>
           </motion.button>
         </div>
 

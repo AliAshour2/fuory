@@ -12,6 +12,7 @@ import ContactUs from "./features/contact-us/ContactUs";
 import AgriculturalShowcase from "./features/varity";
 import ProductCategoryPage from "./pages/ProductCategoryPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         />
         <Route path="/products" element={<ProductCategoryPage />} />
         <Route path="/products/:id" element={<ProductDetailsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </div>
