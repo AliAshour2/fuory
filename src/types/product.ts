@@ -39,6 +39,7 @@ export interface ProductVariety {
   name: string;
   image: string;
   description: string;
+  features: string[];
 }
 
 export interface AvailabilityMonth {
