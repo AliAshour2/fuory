@@ -18,8 +18,8 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
     const nextIndex = (currentIndex + 1) % varieties.length;
     setCurrentIndex(nextIndex);
     
-    // Update thumbnail group when reaching the end of current group
-    if (nextIndex >= thumbnailStartIndex + 3) {
+    // Update thumbnail group when reaching the end of current group (only for >3 varieties)
+    if (varieties.length > 3 && nextIndex >= thumbnailStartIndex + 3) {
       setThumbnailStartIndex(prev => (prev + 3) % varieties.length);
     } else if (nextIndex === 0) {
       setThumbnailStartIndex(0);
@@ -31,8 +31,8 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
     const prevIndex = (currentIndex - 1 + varieties.length) % varieties.length;
     setCurrentIndex(prevIndex);
     
-    // Update thumbnail group when going before current group
-    if (prevIndex < thumbnailStartIndex) {
+    // Update thumbnail group when going before current group (only for >3 varieties)
+    if (varieties.length > 3 && prevIndex < thumbnailStartIndex) {
       setThumbnailStartIndex(prev => (prev - 3 + varieties.length) % varieties.length);
     } else if (prevIndex === varieties.length - 1) {
       setThumbnailStartIndex(Math.max(0, varieties.length - 3));
@@ -43,31 +43,42 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
     setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
     
-    // Update thumbnail group if needed
-    if (index >= thumbnailStartIndex + 3) {
-      setThumbnailStartIndex(Math.min(index, varieties.length - 3));
-    } else if (index < thumbnailStartIndex) {
-      setThumbnailStartIndex(Math.max(0, index));
+    // Only update thumbnail group if we have more than 3 varieties
+    if (varieties.length > 3) {
+      if (index >= thumbnailStartIndex + 3) {
+        setThumbnailStartIndex(Math.min(index, varieties.length - 3));
+      } else if (index < thumbnailStartIndex) {
+        setThumbnailStartIndex(Math.max(0, index));
+      }
     }
   };
 
   const nextThumbnailGroup = () => {
-    setThumbnailStartIndex(prev => (prev + 3) % varieties.length);
+    if (varieties.length > 3) {
+      setThumbnailStartIndex(prev => (prev + 3) % varieties.length);
+    }
   };
 
   const prevThumbnailGroup = () => {
-    setThumbnailStartIndex(prev => (prev - 3 + varieties.length) % varieties.length);
+    if (varieties.length > 3) {
+      setThumbnailStartIndex(prev => (prev - 3 + varieties.length) % varieties.length);
+    }
   };
 
   const currentVariety = varieties[currentIndex];
 
-  // Get current thumbnail group (max 3 items)
-  const currentThumbnails = varieties.slice(thumbnailStartIndex, thumbnailStartIndex + 3);
-  
-  // Fill with empty slots if less than 3 items
-  while (currentThumbnails.length < 3) {
-    currentThumbnails.push(varieties[currentThumbnails.length]);
-  }
+  // Get current thumbnail group based on number of varieties
+  const getCurrentThumbnails = () => {
+    if (varieties.length <= 3) {
+      // If 3 or fewer varieties, show all of them
+      return varieties;
+    } else {
+      // If more than 3 varieties, show current group of 3
+      return varieties.slice(thumbnailStartIndex, thumbnailStartIndex + 3);
+    }
+  };
+
+  const currentThumbnails = getCurrentThumbnails();
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -164,11 +175,11 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* 3x3 Thumbnail Navigation */}
+                {/* Thumbnail Navigation - Only show if more than 1 variety */}
                 {varieties.length > 1 && (
                   <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20">
                     <div className="flex items-center gap-1 bg-black/20 backdrop-blur-sm rounded-xl p-1 border border-white/20">
-                      {/* Previous Group Button */}
+                      {/* Previous Group Button - Only show if more than 3 varieties */}
                       {varieties.length > 3 && (
                         <motion.button
                           onClick={prevThumbnailGroup}
@@ -183,12 +194,16 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
                       {/* Thumbnails */}
                       <div className="flex gap-1">
                         {currentThumbnails.map((variety, index) => {
-                          const actualIndex = (thumbnailStartIndex + index) % varieties.length;
+                          // Calculate actual index based on whether we're showing all or a group
+                          const actualIndex = varieties.length <= 3 
+                            ? index 
+                            : (thumbnailStartIndex + index) % varieties.length;
+                          
                           const isActive = actualIndex === currentIndex;
                           
                           return (
                             <motion.button
-                              key={variety.name}
+                              key={`${variety.name}-${actualIndex}`}
                               onClick={() => goToVariety(actualIndex)}
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
@@ -217,7 +232,7 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
                         })}
                       </div>
 
-                      {/* Next Group Button */}
+                      {/* Next Group Button - Only show if more than 3 varieties */}
                       {varieties.length > 3 && (
                         <motion.button
                           onClick={nextThumbnailGroup}
@@ -233,17 +248,19 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
                 )}
               </div>
 
-              {/* Floating Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full shadow-lg z-10"
-              >
-                <span className="text-xs font-semibold uppercase tracking-wide">
-                  {currentIndex + 1}/{varieties.length}
-                </span>
-              </motion.div>
+              {/* Floating Badge - Only show if more than 1 variety */}
+              {varieties.length > 1 && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 py-1 rounded-full shadow-lg z-10"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide">
+                    {currentIndex + 1}/{varieties.length}
+                  </span>
+                </motion.div>
+              )}
             </div>
           </motion.div>
 
@@ -311,36 +328,40 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
           </motion.div>
         </div>
 
-        {/* Navigation Arrows */}
-        <div className="absolute top-1/2 left-2 -translate-y-1/2 z-20">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Button
-              onClick={prevVariety}
-              size="sm"
-              className="rounded-xl bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white shadow-lg shadow-green-500/30 hover:shadow-green-600/40 transition-all duration-300 group backdrop-blur-sm border border-white/20"
-            >
-              <ChevronLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
-            </Button>
-          </motion.div>
-        </div>
+        {/* Navigation Arrows - Only show if more than 1 variety */}
+        {varieties.length > 1 && (
+          <>
+            <div className="absolute top-1/2 left-2 -translate-y-1/2 z-20">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Button
+                  onClick={prevVariety}
+                  size="sm"
+                  className="rounded-xl bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white shadow-lg shadow-green-500/30 hover:shadow-green-600/40 transition-all duration-300 group backdrop-blur-sm border border-white/20"
+                >
+                  <ChevronLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
+                </Button>
+              </motion.div>
+            </div>
 
-        <div className="absolute top-1/2 right-2 -translate-y-1/2 z-20">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Button
-              onClick={nextVariety}
-              size="sm"
-              className="rounded-xl bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white shadow-lg shadow-green-500/30 hover:shadow-green-600/40 transition-all duration-300 group backdrop-blur-sm border border-white/20"
-            >
-              <ChevronRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </Button>
-          </motion.div>
-        </div>
+            <div className="absolute top-1/2 right-2 -translate-y-1/2 z-20">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Button
+                  onClick={nextVariety}
+                  size="sm"
+                  className="rounded-xl bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white shadow-lg shadow-green-500/30 hover:shadow-green-600/40 transition-all duration-300 group backdrop-blur-sm border border-white/20"
+                >
+                  <ChevronRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                </Button>
+              </motion.div>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
