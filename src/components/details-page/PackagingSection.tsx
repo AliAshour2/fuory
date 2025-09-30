@@ -106,12 +106,7 @@ export function PackagingSection({ packagingOptions }: PackagingSectionProps) {
           viewport={{ once: true }}
           className="max-w-3xl space-y-4 mb-10 lg:mb-12 text-start"
         >
-          <p className="text-gray-700 text-lg sm:text-xl leading-relaxed font-light">
-            You can order ready-to-eat EAT ME mangoes in various packaging. Loose per package of approximately 4 kg and in a 2-pack.
-          </p>
-          <p className="text-gray-700 text-lg sm:text-xl leading-relaxed font-light">
-            Mangoes look attractive in Nature's Pride EAT ME packaging. If you prefer to use your private label, we are happy to help. Take a look at some examples below and contact us to discuss possibilities.
-          </p>
+
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
