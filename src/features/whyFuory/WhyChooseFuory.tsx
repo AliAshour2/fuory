@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Leaf, Truck, Package, Droplet, Sprout } from "lucide-react";
+import whyBackground from "@/assets/images/whybackground.webp";
 
 // Animation variants for stagger effect
 const containerVariants = {
@@ -50,7 +51,7 @@ const WhyChooseFuory = () => {
   ];
 
   return (
-    <section className="relative bg-[url('../src/assets/images/whybackground.webp')] bg-cover bg-center bg-no-repeat py-20 px-6 text-white">
+    <section className="relative bg-cover bg-center bg-no-repeat py-20 px-6 text-white" style={{backgroundImage: `url(${whyBackground})`}}>
       <div className="absolute inset-0" />
       <div className="relative max-w-6xl mx-auto text-center">
         {/* Heading */}

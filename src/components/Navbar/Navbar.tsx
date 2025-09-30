@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import fuoryLogo from "@/assets/images/logos/fuory-logo.webp";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ const Navbar = () => {
         >
           <Link to="/">
             <img
-              src="/src/assets/images/logos/fuory-logo.webp"
+              src={fuoryLogo}
               className="w-full h-full object-contain"
               alt="fuory logo"
             />

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import homepageBackground from "@/assets/images/backgrounds/homepage.webp";
 const HeroSection = () => {
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
 
       <img
-        src="../src/assets/images/backgrounds/homepage.webp"
+        src={homepageBackground}
         alt="Background"
         className="absolute top-0 left-0 w-full h-full object-cover"
       />

@@ -1,16 +1,18 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Button } from "../ui/button";
+import fuoryLogo from "@/assets/images/logos/fuory-logo.webp";
+import patternBg from "@/assets/images/patterns/pattern.webp";
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-[url('../src/assets/images/patterns/pattern.webp')] bg-cover bg-center bg-no-repeat">
+    <footer className="text-white bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${patternBg})`}}>
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="space-y-6 animate-fade-in-up [animation-delay:0ms]">
             <div className="flex items-center h-20 w-20 transform hover:scale-110 transition-transform duration-300">
               <img
-                src="src/assets/images/logos/fuory-logo.webp"
+                src={fuoryLogo}
                 className="w-full h-full object-contain"
                 alt="fuory logo"
               />
