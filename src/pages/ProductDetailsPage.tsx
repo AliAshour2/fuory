@@ -91,7 +91,7 @@ const ProductDetailsPage = () => {
         <section
           id="hero"
           className={`mb-8 sm:mb-12 lg:mb-16 ${
-            activeSection === "hero" ? "bg-gray-50" : ""
+            activeSection === "hero" ? "" : ""
           }`}
         >
           <ProductHero
