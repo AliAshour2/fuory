@@ -72,18 +72,21 @@ const generateDummyData = (product: Product): Product => {
         name: `Premium ${product.name}`,
         image: product.image,
         description: `Our flagship variety featuring exceptional sweetness and perfect texture. Carefully selected for superior taste and visual appeal.`,
+        features: ["Premium Quality", "Superior Taste", "Visually Appealing"],
       },
       {
         id: "2",
         name: `Organic ${product.name}`,
         image: product.image,
         description: `Certified organic variety grown without synthetic pesticides or fertilizers. Perfect for health-conscious consumers seeking natural goodness.`,
+        features: ["Organic Certified", "No Synthetic Pesticides", "Naturally Grown"],
       },
       {
         id: "3",
         name: `Export Grade ${product.name}`,
         image: product.image,
         description: `Premium export quality with extended shelf life and superior packaging. Meets international standards for global distribution.`,
+        features: ["Export Quality", "Extended Shelf Life", "Internationally Certified"],
       },
     ],
   };
@@ -143,13 +146,13 @@ const ProductDetailsPage = () => {
     <div className="min-h-screen  overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
        
-        <section id="hero" className="mb-8 sm:mb-12 lg:mb-16">
-          <ProductHero
-            product={product}
-            sections={sections}
-            onNavigateToSection={handleNavigateToSection}
-          />
-        </section>
+         <section id="hero" className={`mb-8 sm:mb-12 lg:mb-16 ${activeSection === 'hero' ? 'bg-gray-50' : ''}`}>
+            <ProductHero
+              product={product}
+              sections={sections}
+              onNavigateToSection={handleNavigateToSection}
+            />
+          </section>
 
         {/* Availability Section */}
         {product.availability && (
@@ -180,13 +183,13 @@ const ProductDetailsPage = () => {
         )}
 
         {/* Storage Advice Section */}
-        
-      </div>
-      {product.storageAdvice && (
-          <section id="storage" className="">
+        {product.storageAdvice && (
+          <section id="storage" className="mb-8 sm:mb-12 lg:mb-16">
             <StorageAdviceSection storageAdvice={product.storageAdvice} />
           </section>
         )}
+        
+      </div>
     </div>
   );
 };
