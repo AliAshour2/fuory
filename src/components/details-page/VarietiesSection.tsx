@@ -11,23 +11,63 @@ interface VarietiesSectionProps {
 export function VarietiesSection({ varieties }: VarietiesSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [thumbnailStartIndex, setThumbnailStartIndex] = useState(0);
 
   const nextVariety = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % varieties.length);
+    const nextIndex = (currentIndex + 1) % varieties.length;
+    setCurrentIndex(nextIndex);
+    
+    // Update thumbnail group when reaching the end of current group
+    if (nextIndex >= thumbnailStartIndex + 3) {
+      setThumbnailStartIndex(prev => (prev + 3) % varieties.length);
+    } else if (nextIndex === 0) {
+      setThumbnailStartIndex(0);
+    }
   };
 
   const prevVariety = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + varieties.length) % varieties.length);
+    const prevIndex = (currentIndex - 1 + varieties.length) % varieties.length;
+    setCurrentIndex(prevIndex);
+    
+    // Update thumbnail group when going before current group
+    if (prevIndex < thumbnailStartIndex) {
+      setThumbnailStartIndex(prev => (prev - 3 + varieties.length) % varieties.length);
+    } else if (prevIndex === varieties.length - 1) {
+      setThumbnailStartIndex(Math.max(0, varieties.length - 3));
+    }
   };
 
   const goToVariety = (index: number) => {
     setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
+    
+    // Update thumbnail group if needed
+    if (index >= thumbnailStartIndex + 3) {
+      setThumbnailStartIndex(Math.min(index, varieties.length - 3));
+    } else if (index < thumbnailStartIndex) {
+      setThumbnailStartIndex(Math.max(0, index));
+    }
+  };
+
+  const nextThumbnailGroup = () => {
+    setThumbnailStartIndex(prev => (prev + 3) % varieties.length);
+  };
+
+  const prevThumbnailGroup = () => {
+    setThumbnailStartIndex(prev => (prev - 3 + varieties.length) % varieties.length);
   };
 
   const currentVariety = varieties[currentIndex];
+
+  // Get current thumbnail group (max 3 items)
+  const currentThumbnails = varieties.slice(thumbnailStartIndex, thumbnailStartIndex + 3);
+  
+  // Fill with empty slots if less than 3 items
+  while (currentThumbnails.length < 3) {
+    currentThumbnails.push(varieties[currentThumbnails.length]);
+  }
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -68,7 +108,7 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
   return (
     <section className="relative w-full overflow-hidden py-12 sm:py-16 lg:py-20">
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center">
-        {/* Title - Reduced spacing */}
+        {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +131,7 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
           </p>
         </motion.div>
 
-        {/* Content Container - Reduced spacing */}
+        {/* Content Container */}
         <div className="relative flex-1 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center min-h-[400px]">
           
           {/* Image Carousel */}
@@ -119,43 +159,75 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
                     <img
                       src={currentVariety.image}
                       alt={currentVariety.name}
-                      className="w-full h-full object-contain  transform transition-transform duration-400 hover:scale-105"
+                      className="w-full h-full object-contain transform transition-transform duration-400 hover:scale-105"
                     />
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Thumbnail Carousel */}
+                {/* 3x3 Thumbnail Navigation */}
                 {varieties.length > 1 && (
                   <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="flex gap-1 bg-black/20 backdrop-blur-sm rounded-xl p-1 border border-white/20">
-                      {varieties.map((variety, index) => (
+                    <div className="flex items-center gap-1 bg-black/20 backdrop-blur-sm rounded-xl p-1 border border-white/20">
+                      {/* Previous Group Button */}
+                      {varieties.length > 3 && (
                         <motion.button
-                          key={variety.name}
-                          onClick={() => goToVariety(index)}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className={`relative rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                            index === currentIndex
-                              ? "border-green-500 shadow-md shadow-green-500/50 scale-105"
-                              : "border-white/30 hover:border-green-300"
-                          }`}
+                          onClick={prevThumbnailGroup}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="w-6 h-6 flex items-center justify-center rounded-md bg-white/20 hover:bg-white/30 transition-colors"
                         >
-                          <img
-                            src={variety.image}
-                            alt={variety.name}
-                            className="w-10 h-10 sm:w-12 sm:h-12 object-cover transition-transform duration-300 hover:scale-110"
-                          />
-                          {index === currentIndex && (
-                            <motion.div
-                              layoutId="activeThumb"
-                              className="absolute inset-0 bg-green-500/20 border-2 border-green-400 rounded-lg"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ duration: 0.2 }}
-                            />
-                          )}
+                          <ChevronLeft className="w-3 h-3 text-white" />
                         </motion.button>
-                      ))}
+                      )}
+
+                      {/* Thumbnails */}
+                      <div className="flex gap-1">
+                        {currentThumbnails.map((variety, index) => {
+                          const actualIndex = (thumbnailStartIndex + index) % varieties.length;
+                          const isActive = actualIndex === currentIndex;
+                          
+                          return (
+                            <motion.button
+                              key={variety.name}
+                              onClick={() => goToVariety(actualIndex)}
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              className={`relative rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                                isActive
+                                  ? "border-green-500 shadow-md shadow-green-500/50 scale-105"
+                                  : "border-white/30 hover:border-green-300"
+                              }`}
+                            >
+                              <img
+                                src={variety.image}
+                                alt={variety.name}
+                                className="w-10 h-10 sm:w-12 sm:h-12 object-cover transition-transform duration-300 hover:scale-110"
+                              />
+                              {isActive && (
+                                <motion.div
+                                  layoutId="activeThumb"
+                                  className="absolute inset-0 bg-green-500/20 border-2 border-green-400 rounded-lg"
+                                  initial={{ opacity: 0 }}
+                                  animate={{ opacity: 1 }}
+                                  transition={{ duration: 0.2 }}
+                                />
+                              )}
+                            </motion.button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Next Group Button */}
+                      {varieties.length > 3 && (
+                        <motion.button
+                          onClick={nextThumbnailGroup}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="w-6 h-6 flex items-center justify-center rounded-md bg-white/20 hover:bg-white/30 transition-colors"
+                        >
+                          <ChevronRight className="w-3 h-3 text-white" />
+                        </motion.button>
+                      )}
                     </div>
                   </div>
                 )}
@@ -175,7 +247,7 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
             </div>
           </motion.div>
 
-          {/* Variety Info - Reduced spacing */}
+          {/* Variety Info */}
           <motion.div className="flex flex-col justify-center p-4 space-y-4 relative">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
@@ -239,43 +311,7 @@ export function VarietiesSection({ varieties }: VarietiesSectionProps) {
           </motion.div>
         </div>
 
-        {/* Dots Navigation - Reduced spacing */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="flex justify-center gap-3 mt-4"
-        >
-          {varieties.map((variety, index) => (
-            <motion.button
-              key={variety.name}
-              onClick={() => goToVariety(index)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative group"
-            >
-              <div
-                className={`relative w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-green-600 scale-110 shadow-md shadow-green-500/50"
-                    : "bg-gray-300 hover:bg-green-400"
-                }`}
-              >
-                {index === currentIndex && (
-                  <motion.span
-                    layoutId="activeDot"
-                    className="absolute inset-0 bg-green-500 rounded-full"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </div>
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* Navigation Arrows - Smaller */}
+        {/* Navigation Arrows */}
         <div className="absolute top-1/2 left-2 -translate-y-1/2 z-20">
           <motion.div
             whileHover={{ scale: 1.05 }}
