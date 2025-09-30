@@ -12,28 +12,7 @@ import { GrowingInfoSection } from "@/components/details-page/GrowingInfoSection
 import { VarietiesSection } from "@/components/details-page/VarietiesSection";
 
 // Enhanced dummy data generator with rich content
-const generateDummyData = (product: Product): Product => {
-  return {
-    ...product,
-    availability: product.availability || [
-      { month: "Jan", available: false },
-      { month: "Feb", available: false },
-      { month: "Mar", available: true },
-      { month: "Apr", available: true },
-      { month: "May", available: true },
-      { month: "Jun", available: true },
-      { month: "Jul", available: true },
-      { month: "Aug", available: true },
-      { month: "Sep", available: true },
-      { month: "Oct", available: true },
-      { month: "Nov", available: false },
-      { month: "Dec", available: false },
-    ],
-    storageAdvice: product?.storageAdvice,
-    packagingOptions: product?.packagingOptions,
-    varieties: product?.varieties,
-  };
-};
+
 
 const ProductDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -61,7 +40,7 @@ const ProductDetailsPage = () => {
 
     if (foundProduct) {
       // Generate complete data with dummy fallbacks
-      setProduct(generateDummyData(foundProduct));
+      setProduct((foundProduct));
     } else {
       // Product not found, redirect to products page
       navigate("/products");
