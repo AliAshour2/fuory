@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/navbar/Navbar";
+
 import WhyChooseFuory from "./features/whyFuory/WhyChooseFuory";
 import HeroSection from "./features/hero/HeroSection";
 import ProductsCarousel from "./features/products/ProductsCarousel";
@@ -13,6 +13,7 @@ import AgriculturalShowcase from "./features/varity";
 import ProductCategoryPage from "./pages/ProductCategoryPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ContactPage from "./pages/ContactPage";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
