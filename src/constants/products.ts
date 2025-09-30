@@ -22,6 +22,10 @@ import frozen10 from "@/assets/images/forzen/forzen10.webp";
 import cartonBox from "@/assets/images/packing/sweetpotato/carton.webp";
 import plasticBox from "@/assets/images/packing/sweetpotato/plastic.webp";
 
+import beuaregard from "@/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp";
+import bellevue from "@/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp";
+
+
 export const products = [
   {
     id: 9,
@@ -48,13 +52,13 @@ varieties: [
   { 
     id: "v1", 
     name: "Beauregard",  
-    image: "/src/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp",
+    image: beuaregard,
     alt: "Beauregard sweet potato – premium Egyptian variety with rich taste"
   },
   { 
     id: "v2", 
     name: "Bellevue", 
-    image: "/src/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp",
+    image: bellevue,
     alt: "Bellevue sweet potato – high-quality Egyptian variety with excellent texture"
   },
 ],
