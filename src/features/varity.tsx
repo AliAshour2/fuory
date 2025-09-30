@@ -2,6 +2,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+// Import variety images
+import orangesImg from "@/assets/images/varity/oranges.webp";
+import fruitsImg from "@/assets/images/varity/fruits.webp";
+import vegetablesImg from "@/assets/images/varity/vegetables.webp";
+import frozenImg from "@/assets/images/varity/frozen.webp";
+
 const AgriculturalShowcase = () => {
   const products = [
     {
@@ -16,7 +22,7 @@ const AgriculturalShowcase = () => {
         "Low acidity",
         "International standards",
       ],
-      image: "../src/assets/images/varity/oranges.webp",
+      image: orangesImg,
       alt: "Premium Egyptian Citrus fruits including oranges, tangerines, lemons, and grapefruits for export",
     },
     {
@@ -31,7 +37,7 @@ const AgriculturalShowcase = () => {
         "Perfect ripeness",
         "Export ready",
       ],
-      image: "../src/assets/images/varity/fruits.webp",
+      image: fruitsImg,
       alt: "Fresh Egyptian fruits including grapes, pomegranates,watermelons, mango, strawberry, Cantaloupe, Melon, Kiwi, Tangerine, Mandarin, sweetpotato and figs for export",
     },
     {
@@ -46,7 +52,7 @@ const AgriculturalShowcase = () => {
         "Safe packaging materials",
         "Food safety certified",
       ],
-      image: "../src/assets/images/varity/vegetables.webp",
+      image: vegetablesImg,
       alt: "Fresh Egyptian vegetables including potatoes, sweetpotato, carrot, beans, cabbage, broccoli, cucumber, onions, tomatoes, and peppers for export",
     },
     {
@@ -61,7 +67,7 @@ const AgriculturalShowcase = () => {
         "Individual separation",
         "Extended shelf life",
       ],
-      image: "../src/assets/images/varity/frozen.webp",
+      image: frozenImg,
       alt: "Egyptian frozen fruits and vegetables using IQF technology for export",
     },
   ];

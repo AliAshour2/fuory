@@ -18,6 +18,10 @@ import frozen8 from "@/assets/images/forzen/forzen8.webp";
 import frozen9 from "@/assets/images/forzen/forzen9.webp";
 import frozen10 from "@/assets/images/forzen/forzen10.webp";
 
+// Import packaging images
+import cartonBox from "@/assets/images/packing/sweetpotato/carton.webp";
+import plasticBox from "@/assets/images/packing/sweetpotato/plastic.webp";
+
 export const products = [
   {
     id: 9,
@@ -67,7 +71,7 @@ packagingOptions: [
   { 
     id: "p1", 
     name: "Carton Box", 
-    image: "/src/assets/images/packing/sweetpotato/carton.webp",
+    image: cartonBox,
     alt: "corrugated carton box for fresh sweet potatoes packaging 4",
     weight: "10kg", 
     dimensions: "40x30x25cm" 
@@ -75,7 +79,7 @@ packagingOptions: [
   { 
     id: "p2", 
     name: "Plastic Box",
-    image: "/src/assets/images/packing/sweetpotato/plastic.webp",
+    image: plasticBox,
     alt: "reusable plastic crate for bulk sweet potatoes transport ",
     weight: "20kg", 
     dimensions: "60x40x30cm" 
