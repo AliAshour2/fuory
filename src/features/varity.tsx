@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 // Import variety images
 import orangesImg from "@/assets/images/varity/oranges.webp";
@@ -71,10 +77,39 @@ const AgriculturalShowcase = () => {
       alt: "Egyptian frozen fruits and vegetables using IQF technology for export",
     },
   ];
+  
   const [activeProduct, setActiveProduct] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  // Setup carousel API
+  const setupCarousel = useCallback((api: CarouselApi) => {
+    setCarouselApi(api);
+  }, []);
+
+  // Update carousel when activeProduct changes (tab click)
+  useEffect(() => {
+    if (carouselApi) {
+      carouselApi.scrollTo(activeProduct);
+    }
+  }, [activeProduct, carouselApi]);
+
+  // Update active product when carousel changes (swipe)
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const handleSelect = () => {
+      const selectedIndex = carouselApi.selectedScrollSnap();
+      setActiveProduct(selectedIndex);
+    };
+
+    carouselApi.on("select", handleSelect);
+    return () => {
+      carouselApi.off("select", handleSelect);
+    };
+  }, [carouselApi]);
 
   return (
-    <section className="relative min-h-screen ">
+    <section className="relative min-h-screen">
       {/* Animated floating background elements */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -94,38 +129,38 @@ const AgriculturalShowcase = () => {
         />
       </motion.div>
 
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        {/* Header */}
+      <div className="container mx-auto px-4 sm:px-6 py-12 md:py-20 relative z-10">
+        {/* Header - Always on top */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <p className="text-green-600 text-6xl font-veneer font-medium tracking-wider uppercase mb-4">
+          <p className="text-green-600 text-4xl md:text-6xl font-veneer font-medium tracking-wider uppercase mb-4">
             CATEGORIES
           </p>
-          <span className="text-3xl md:text-3xl font-bold text-gray-900 mb-6 font-dm">
+          <span className="text-xl md:text-3xl font-bold text-gray-900 mb-6 font-dm">
             We believe in working with{" "}
             <span className="text-green-600 font-dm">accredited farmers</span>
           </span>
         </motion.div>
 
-        {/* Product Navigation */}
+        {/* Product Navigation - Works on both mobile and desktop */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex flex-wrap justify-center gap-3 mb-12 md:mb-16"
         >
           {products.map((product, index) => (
             <Button
               key={product.id}
               variant={activeProduct === index ? "default" : "outline"}
               onClick={() => setActiveProduct(index)}
-              className={`px-8 py-3 text-lg font-medium transition-all duration-300 rounded-full ${
+              className={`px-4 py-2 md:px-8 md:py-3 text-sm md:text-lg font-medium transition-all duration-300 rounded-full ${
                 activeProduct === index
                   ? "bg-green-600 hover:bg-green-700 text-white shadow-lg"
                   : "border-green-400 text-green-600 hover:bg-green-100"
@@ -136,8 +171,84 @@ const AgriculturalShowcase = () => {
           ))}
         </motion.div>
 
-        {/* Active Product */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Mobile Carousel */}
+        <div className="block lg:hidden">
+          <Carousel setApi={setupCarousel}>
+            <CarouselContent>
+              {products.map((product) => (
+                <CarouselItem key={product.id}>
+                  <div className="space-y-8">
+                    {/* Image at top for mobile */}
+                    <motion.div
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      viewport={{ once: true }}
+                      className="relative"
+                    >
+                      <div className="relative overflow-hidden rounded-2xl bg-white/40 backdrop-blur-sm border border-green-200 shadow-lg">
+                        <motion.img
+                          src={product.image || "/placeholder.svg"}
+                          alt={product.alt}
+                          className="w-full h-[300px] object-cover"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.5 }}
+                          loading="lazy"
+                        />
+                      </div>
+                    </motion.div>
+
+                    {/* Text content below image */}
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="space-y-6 text-center"
+                    >
+                      <div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                          {product.title}
+                        </h2>
+                        <p className="text-lg text-green-600 font-medium mb-4">
+                          {product.subtitle}
+                        </p>
+                        <p className="text-base text-gray-600 leading-relaxed">
+                          {product.description}
+                        </p>
+                      </div>
+
+                      {/* Features */}
+                      <div className="grid grid-cols-2 gap-3">
+                        {product.features.map((feature, featureIndex) => (
+                          <motion.div
+                            key={featureIndex}
+                            whileHover={{ scale: 1.05 }}
+                            className="rounded-xl border border-green-200 bg-white/60 backdrop-blur-sm p-3 shadow-sm"
+                          >
+                            <p className="text-xs font-medium text-gray-700">
+                              {feature}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      <Button
+                        size="lg"
+                        className="px-6 py-3 text-base font-medium bg-green-600 hover:bg-green-700 text-white rounded-full shadow-md mx-auto"
+                      >
+                        READ MORE
+                      </Button>
+                    </motion.div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <motion.div
             key={products[activeProduct].id}
