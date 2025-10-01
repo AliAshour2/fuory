@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="w-full h-full">
       <Helmet>
-        <title>Fuory - Fresh and Frozen Produce</title>
+        <title>Fuory - Fresh & Frozen Fruits and Vegetables</title>
         <meta
           name="description"
           content="Fuory is a leading supplier of high-quality fresh and frozen fruits and vegetables, sourced from the best farms in Egypt."
