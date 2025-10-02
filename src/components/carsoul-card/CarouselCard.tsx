@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
+
 interface CarouselCardProps {
   image: string;
   name: string;
   description?: string;
+  id: string;
 }
 
-const CarouselCard = ({ image, name, description }: CarouselCardProps) => {
+const CarouselCard = ({ image, name, description, id }: CarouselCardProps) => {
   return (
-    <div className="p-4">
+    <Link to={`/products/${id}`} className="block">
+      <div className="p-4">
       <div className="group rounded-xl overflow-hidden relative">
         {/* Image */}
         <div className="flex items-center justify-center h-96 w-full">
@@ -37,6 +41,8 @@ const CarouselCard = ({ image, name, description }: CarouselCardProps) => {
         </div>
       </div>
     </div>
+    </Link>
+    
   );
 };
 
