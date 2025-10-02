@@ -14,6 +14,7 @@ import ProductCategoryPage from "./pages/ProductCategoryPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import ContactPage from "./pages/ContactPage";
 import Navbar from "./components/Navbar/Navbar";
+import ScrollToTop from "./hooks/scrolltop";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         />
       </Helmet>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"
