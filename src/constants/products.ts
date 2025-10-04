@@ -215,7 +215,7 @@ export const products = [
         alt: "Assiuty pomegranate – regional Egyptian variety, prized for its juiciness and vibrant color.",
       },
     ],
-    description: "Fresh, juicy, and vibrant Egyptian pomegranates.",
+    description: "Fresh and vibrant Egyptian pomegranates.",
     alt: "Egyptian Pomegranate for export",
     category: "fruit",
   },
