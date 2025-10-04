@@ -44,6 +44,7 @@ const ProductsCarousel = () => {
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
                   <CarouselCard
+                    id={product.name}
                     image={product.image}
                     name={product.name}
                     description={product.description}
