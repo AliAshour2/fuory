@@ -9,6 +9,9 @@ import greenPappers from "@/assets/images/fruitsandvegetables/greenpapers.webp";
 import sweetPotato from "@/assets/images/fruitsandvegetables/sweetpotato.webp";
 import tomato from "@/assets/images/fruitsandvegetables/tomato.webp";
 import pomegranate from "@/assets/images/fruitsandvegetables/pomegranate.webp";
+import icebergLettuce from "@/assets/images/fruitsandvegetables/iceberg lettuce.webp";
+import carrot from "@/assets/images/fruitsandvegetables/carrot.webp";
+import cucumber from "@/assets/images/fruitsandvegetables/cucumber.webp";
 
 import frozen2 from "@/assets/images/forzen/forzen2.webp";
 import frozen3 from "@/assets/images/forzen/forzen3.webp";
@@ -93,6 +96,168 @@ export const products = [
       },
     ],
   },
+  {
+    id: "Iceberg Lettuce",
+    name: "Iceberg Lettuce",
+    image: icebergLettuce,
+    description: "Crisp and fresh iceberg lettuce",
+    alt: "Egyptian Iceberg Lettuce for export",
+    category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    varieties: [
+      {
+        id: "Egyptian Iceberg Lettuce",
+        name: "Great Lakes",
+        image: icebergLettuce,
+        alt: "Great Lakes iceberg lettuce – crisp and widely grown Egyptian variety",
+      },
+    ],
+
+    storageAdvice: {
+      transport: "Transport at 0–2°C with high humidity (90–95%)",
+      shop: "Store in a refrigerated place, ideally 0–5°C, and keep away from ethylene-producing fruits",
+    },
+    growingInfo: {
+      title: "Premium Iceberg Lettuce from Egypt",
+      description:
+        "Our iceberg lettuce is cultivated in Egypt’s fertile soil, benefiting from ideal growing conditions for producing crisp, fresh, and high-quality lettuce. Sustainable farming practices guarantee freshness and long shelf life.",
+    },
+  },
+  {
+    id: "Carrot",
+    name: "Carrot",
+    image: carrot,
+    description: "Fresh, crunchy, and nutritious carrots",
+    alt: "Egyptian Carrots for export",
+    category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    varieties: [
+      {
+        id: "OrangeCarrot",
+        name: "Orange Carrot",
+        image: carrot,
+        alt: "Orange carrot – fresh and crunchy Egyptian variety",
+      },
+    ],
+
+    storageAdvice: {
+      transport: "Transport at 0–8°C with high humidity (85–95%)",
+      shop: "Store in a cool, dark place or refrigerated between 0–4°C to maintain freshness",
+    },
+    growingInfo: {
+      title: "Premium Carrots from Egypt",
+      description:
+        "Our Egyptian carrots are cultivated in fertile soil under optimal climate conditions, producing bright orange, crisp, and sweet roots. We follow sustainable farming methods to ensure high quality and long shelf life.",
+    },
+    packagingOptions: [
+      {
+        id: "Carton Box",
+        name: "Carton Box",
+        image: "cartonBox",
+        description: "10KG , 15KG , Client Request",
+        alt: "corrugated carton box for carrots packaging",
+        weight: "10–15kg",
+        dimensions: "60x40x30cm",
+      },
+      {
+        id: "bulk pack",
+        name: "bulk pack",
+        image: "",
+        description: "5KG , 10KG , 20KG and options available",
+        alt: "breathable bulk pack for bulk carrot packaging",
+        weight: "5–20kg",
+        dimensions: "varies by client request",
+      },
+    ],
+  },
+  {
+  id: "Cucumber",
+  name: "Cucumber",
+  image: cucumber,
+  description: "Fresh, crunchy, and healthy cucumbers",
+  alt: "Egyptian Cucumbers for export",
+  category: "vegetable",
+  availability: [
+    { month: "Jan", available: true },
+    { month: "Feb", available: true },
+    { month: "Mar", available: true },
+    { month: "Apr", available: true },
+    { month: "May", available: true },
+    { month: "Jun", available: true },
+    { month: "Jul", available: true },
+    { month: "Aug", available: true },
+    { month: "Sep", available: true },
+    { month: "Oct", available: true },
+    { month: "Nov", available: true },
+    { month: "Dec", available: true },
+  ],
+  varieties: [
+    {
+      id: "Cucumber",
+      name: "Slicer Cucumber",
+      image: cucumber,
+      alt: " cucumber – fresh Egyptian variety for salads and fresh consumption",
+    },
+
+  ],
+
+  storageAdvice: {
+    transport: "Transport at +10°C to +13°C with 90–95% humidity",
+    shop: "Store at +10°C to +13°C, avoid temperatures below 7°C to prevent chilling injury",
+  },
+  growingInfo: {
+    title: "Premium Cucumbers from Egypt",
+    description:
+      "Our cucumbers are cultivated in Egypt’s fertile soils, producing crisp, juicy, and high-quality cucumbers suitable for fresh markets and processing. Sustainable farming practices ensure freshness and long shelf life.",
+  },
+  packagingOptions: [
+    {
+      id: "Carton Box",
+      name: "Carton Box",
+      image: cartonBox,
+      description: "5KG , 10KG , Client Request",
+      alt: "corrugated carton box for cucumber packaging",
+      weight: "5–10kg",
+      dimensions: "60x40x25cm",
+    },
+    {
+      id: "Plastic Box",
+      name: "Plastic Box",
+      image: plasticBox,
+      description: "Bulk packaging, client request available",
+      alt: "reusable plastic crate for bulk cucumber transport",
+      weight: "10–20kg",
+      dimensions: "60x40x30cm",
+    },
+  ],
+}
+,
   {
     id: "Mango",
     name: "Fresh Mango",
@@ -226,7 +391,7 @@ export const products = [
     alt: "Egyptian Orange for export",
     description: "Citrus-rich sweet oranges",
     category: "fruit",
-        availability: [
+    availability: [
       { month: "Jan", available: true },
       { month: "Feb", available: true },
       { month: "Mar", available: true },
@@ -248,7 +413,7 @@ export const products = [
     alt: "Egyptian Watermelon for export",
     description: "Refreshing summer watermelon",
     category: "fruit",
-        availability: [
+    availability: [
       { month: "Jan", available: false },
       { month: "Feb", available: false },
       { month: "Mar", available: false },
