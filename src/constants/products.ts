@@ -12,7 +12,7 @@ import pomegranate from "@/assets/images/fruitsandvegetables/pomegranate.webp";
 import icebergLettuce from "@/assets/images/fruitsandvegetables/iceberg lettuce.webp";
 import carrot from "@/assets/images/fruitsandvegetables/carrot.webp";
 import cucumber from "@/assets/images/fruitsandvegetables/cucumber.webp";
-
+import strawberry from "@/assets/images/fruitsandvegetables/strawberry.webp";
 import frozen2 from "@/assets/images/forzen/forzen2.webp";
 import frozen3 from "@/assets/images/forzen/forzen3.webp";
 import frozen4 from "@/assets/images/forzen/forzen4.webp";
@@ -25,6 +25,12 @@ import frozen10 from "@/assets/images/forzen/forzen10.webp";
 // Import packaging images
 import cartonBox from "@/assets/images/packing/sweetpotato/carton.webp";
 import plasticBox from "@/assets/images/packing/sweetpotato/plastic.webp";
+import cucumberBox from "@/assets/images/fruitsandvegetables/cucmberbox.webp";
+import orangesplasticBox from "@/assets/images/fruitsandvegetables/oranges/packing/orangeboxs.webp"
+
+
+import strawberryBox from "@/assets/images/fruitsandvegetables/strawberry/strawberry-box.webp";
+import strawberryplasticPunnet from "@/assets/images/fruitsandvegetables/strawberry/strawberry-plastic-punnet.webp";
 
 import beuaregard from "@/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp";
 import bellevue from "@/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp";
@@ -93,6 +99,60 @@ export const products = [
         alt: "reusable plastic crate for bulk sweet potatoes transport ",
         weight: "20kg",
         dimensions: "60x40x30cm",
+      },
+    ],
+  },
+  {
+    id: "Strawberry",
+    name: "Strawberry",
+    image: strawberry,
+    description: "Fresh and juicy Egyptian strawberries",
+    alt: "Egyptian Strawberries for export",
+    category: "fruit",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: false },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+   
+
+    storageAdvice: {
+      transport:
+        "Transport at 0-2°C to maintain freshness and prevent bruising",
+      shop: "Store in the refrigerator and consume within a few days for best taste",
+    },
+    growingInfo: {
+      title: "Premium Egyptian Strawberries",
+      description:
+        "Our strawberries are cultivated in the rich, sunlit fields of Egypt, ensuring vibrant color, natural sweetness, and superior quality. Grown using modern, sustainable farming techniques for the finest export-grade produce.",
+    },
+    packagingOptions: [
+      {
+        id: "Plastic Punnet",
+        name: "Plastic Punnet",
+        image: strawberryplasticPunnet,
+        description: "250g , 500g , or as per client request",
+        alt: "plastic punnet packaging for fresh Egyptian strawberries",
+        weight: "0.25kg - 0.5kg",
+        dimensions: "15x10x5cm",
+      },
+      {
+        id: "Carton Box",
+        name: "Carton Box",
+        image: strawberryBox,
+        description: "2KG , 4KG , or as per client request",
+        alt: "corrugated carton box for bulk strawberry transport",
+        weight: "2kg - 4kg",
+        dimensions: "40x30x12cm",
       },
     ],
   },
@@ -197,67 +257,56 @@ export const products = [
     ],
   },
   {
-  id: "Cucumber",
-  name: "Cucumber",
-  image: cucumber,
-  description: "Fresh, crunchy, and healthy cucumbers",
-  alt: "Egyptian Cucumbers for export",
-  category: "vegetable",
-  availability: [
-    { month: "Jan", available: true },
-    { month: "Feb", available: true },
-    { month: "Mar", available: true },
-    { month: "Apr", available: true },
-    { month: "May", available: true },
-    { month: "Jun", available: true },
-    { month: "Jul", available: true },
-    { month: "Aug", available: true },
-    { month: "Sep", available: true },
-    { month: "Oct", available: true },
-    { month: "Nov", available: true },
-    { month: "Dec", available: true },
-  ],
-  varieties: [
-    {
-      id: "Cucumber",
-      name: "Slicer Cucumber",
-      image: cucumber,
-      alt: " cucumber – fresh Egyptian variety for salads and fresh consumption",
-    },
+    id: "Cucumber",
+    name: "Cucumber",
+    image: cucumber,
+    description: "Fresh, crunchy, and healthy cucumbers",
+    alt: "Egyptian Cucumbers for export",
+    category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    varieties: [
+      {
+        id: "Cucumber",
+        name: "Egyptian Cucumber",
+        image: cucumber,
+        alt: " cucumber – fresh Egyptian variety for salads and fresh consumption",
+      },
+    ],
 
-  ],
-
-  storageAdvice: {
-    transport: "Transport at +10°C to +13°C with 90–95% humidity",
-    shop: "Store at +10°C to +13°C, avoid temperatures below 7°C to prevent chilling injury",
-  },
-  growingInfo: {
-    title: "Premium Cucumbers from Egypt",
-    description:
-      "Our cucumbers are cultivated in Egypt’s fertile soils, producing crisp, juicy, and high-quality cucumbers suitable for fresh markets and processing. Sustainable farming practices ensure freshness and long shelf life.",
-  },
-  packagingOptions: [
-    {
-      id: "Carton Box",
-      name: "Carton Box",
-      image: cartonBox,
-      description: "5KG , 10KG , Client Request",
-      alt: "corrugated carton box for cucumber packaging",
-      weight: "5–10kg",
-      dimensions: "60x40x25cm",
+    storageAdvice: {
+      transport: "Transport at +10°C to +13°C with 90–95% humidity",
+      shop: "Store at +10°C to +13°C, avoid temperatures below 7°C to prevent chilling injury",
     },
-    {
-      id: "Plastic Box",
-      name: "Plastic Box",
-      image: plasticBox,
-      description: "Bulk packaging, client request available",
-      alt: "reusable plastic crate for bulk cucumber transport",
-      weight: "10–20kg",
-      dimensions: "60x40x30cm",
+    growingInfo: {
+      title: "Premium Cucumbers from Egypt",
+      description:
+        "Our cucumbers are cultivated in Egypt’s fertile soils, producing crisp, juicy, and high-quality cucumbers suitable for fresh markets and processing. Sustainable farming practices ensure freshness and long shelf life.",
     },
-  ],
-}
-,
+    packagingOptions: [
+      {
+        id: "Carton Box",
+        name: "Carton Box",
+        image: cucumberBox,
+        description: "5KG , 10KG , Client Request",
+        alt: "corrugated carton box for cucumber packaging",
+        weight: "5–10kg",
+        dimensions: "60x40x25cm",
+      },
+    ],
+  },
   {
     id: "Mango",
     name: "Fresh Mango",
@@ -404,6 +453,17 @@ export const products = [
       { month: "Oct", available: false },
       { month: "Nov", available: true },
       { month: "Dec", available: true },
+    ],
+     packagingOptions: [
+      {
+        id: "Plastic Box",
+        name: "Plastic Box",
+        image: orangesplasticBox,
+        description: "5KG , 10KG , Client Request",
+        alt: "corrugated carton box for oranges packaging",
+        weight: "5–10kg",
+        dimensions: "60x40x25cm",
+      },
     ],
   },
   {
