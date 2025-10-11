@@ -26,8 +26,9 @@ import frozen10 from "@/assets/images/forzen/forzen10.webp";
 import cartonBox from "@/assets/images/packing/sweetpotato/carton.webp";
 import plasticBox from "@/assets/images/packing/sweetpotato/plastic.webp";
 import cucumberBox from "@/assets/images/fruitsandvegetables/cucmberbox.webp";
-import orangesplasticBox from "@/assets/images/fruitsandvegetables/oranges/packing/orangeboxs.webp"
-
+import orangesplasticBox from "@/assets/images/fruitsandvegetables/oranges/packing/orangeboxs.webp";
+import sweetPotatoCartonBin from "@/assets/images/packing/sweetpotato/cartonBinSp.webp";
+import sweetPotatoWoodenBin from "@/assets/images/packing/sweetpotato/woodenBin.webp";
 
 import strawberryBox from "@/assets/images/fruitsandvegetables/strawberry/strawberry-box.webp";
 import strawberryplasticPunnet from "@/assets/images/fruitsandvegetables/strawberry/strawberry-plastic-punnet.webp";
@@ -100,6 +101,21 @@ export const products = [
         weight: "20kg",
         dimensions: "60x40x30cm",
       },
+      {
+        id: "Carton Bin",
+        name: "Carton Bin",
+        image: sweetPotatoCartonBin,
+        description: "Client Request",
+        alt: "large corrugated carton bin for bulk sweet potatoes transport",
+        weight: "50kg",
+        dimensions: "varies by client request",
+      },
+      {
+        id: "Wooden Bin",
+        name: "Wooden Bin",
+        image: sweetPotatoWoodenBin,
+        description: "Client Request",
+      },
     ],
   },
   {
@@ -123,7 +139,6 @@ export const products = [
       { month: "Nov", available: true },
       { month: "Dec", available: true },
     ],
-   
 
     storageAdvice: {
       transport:
@@ -454,7 +469,7 @@ export const products = [
       { month: "Nov", available: true },
       { month: "Dec", available: true },
     ],
-     packagingOptions: [
+    packagingOptions: [
       {
         id: "Plastic Box",
         name: "Plastic Box",
