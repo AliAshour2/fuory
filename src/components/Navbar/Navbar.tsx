@@ -101,6 +101,7 @@ const Navbar = () => {
         </nav>
 
         {/* Desktop CTA */}
+        <Link to='/contact'>
         <div className="hidden md:flex">
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -112,6 +113,8 @@ const Navbar = () => {
             <a href="/contact">Get in Touch</a>
           </motion.button>
         </div>
+        </Link>
+        
 
         {/* Mobile Menu Button */}
         <button
@@ -182,8 +185,9 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              <motion.a
-                href="#contact"
+              <Link to="/contact">
+              <motion.span
+              
                 onClick={() => setIsMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -193,7 +197,9 @@ const Navbar = () => {
                            transition-all duration-300"
               >
                 Get in Touch
-              </motion.a>
+              </motion.span>
+              </Link>
+              
             </nav>
           </motion.div>
         )}
