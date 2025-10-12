@@ -13,6 +13,14 @@ import icebergLettuce from "@/assets/images/fruitsandvegetables/iceberg lettuce.
 import carrot from "@/assets/images/fruitsandvegetables/carrot.webp";
 import cucumber from "@/assets/images/fruitsandvegetables/cucumber.webp";
 import strawberry from "@/assets/images/fruitsandvegetables/strawberry.webp";
+import cactusFig from "@/assets/images/fruitsandvegetables/cactus-fig.webp";
+import Artichoke from "@/assets/images/fruitsandvegetables/Artichoke.webp";
+import onions  from  "@/assets/images/fruitsandvegetables/onions.webp";
+import yellowOnion from "@/assets/images/fruitsandvegetables/white-onion.webp";
+import redOnion from "@/assets/images/fruitsandvegetables/red-onion.webp";
+import potato from  "@/assets/images/fruitsandvegetables/potato.webp";
+import springOnion from "@/assets/images/fruitsandvegetables/spring-onion.webp";
+
 import frozen2 from "@/assets/images/forzen/forzen2.webp";
 import frozen3 from "@/assets/images/forzen/forzen3.webp";
 import frozen4 from "@/assets/images/forzen/forzen4.webp";
@@ -212,6 +220,14 @@ export const products = [
     },
   },
   {
+    id : 'Potatoes',
+    name : "Potatoes",
+    image : potato ,
+    alt : "Egyptian Potatoes for export",
+    description : "Fresh and versatile potatoes",
+    category : "vegetable",
+  },
+  {
     id: "Carrot",
     name: "Carrot",
     image: carrot,
@@ -320,6 +336,28 @@ export const products = [
         weight: "5–10kg",
         dimensions: "60x40x25cm",
       },
+    ],
+  },
+  {
+    id : 'Artichoke',
+    name : "Artichoke",
+    image : Artichoke,
+    alt : "Egyptian Artichoke for export",
+    description : "Fresh and tender artichokes",
+    category : "vegetable",
+      availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: false },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: false },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
     ],
   },
   {
@@ -689,6 +727,30 @@ export const products = [
     ],
   },
   {
+    id  : 'cactus fig',
+    name : "Cactus Fig",
+    image : cactusFig,
+    alt : "Egyptian Cactus Fig for export",
+    description : "Exotic and sweet cactus figs",
+    category : "fruit",
+    availability: [
+  { month: "Jan", available: false },
+  { month: "Feb", available: false },
+  { month: "Mar", available: false },
+  { month: "Apr", available: false },
+  { month: "May", available: false },
+  { month: "Jun", available: true },
+  { month: "Jul", available: true },
+  { month: "Aug", available: true },
+  { month: "Sep", available: true },
+  { month: "Oct", available: true },
+  { month: "Nov", available: false },
+  { month: "Dec", available: false },
+],
+
+  }
+  ,
+  {
     id: 1,
     name: "Fresh Fig",
     image: fig,
@@ -704,6 +766,81 @@ export const products = [
     description: "Tangy and delicious kiwi fruit",
     category: "fruit",
   },
+
+  {
+    id  : 'onions',
+    name : "Onions",
+    image : onions,
+    alt : "Egyptian Onions for export",
+    description : "Fresh and flavorful onions",
+    category : "vegetable",
+    
+    varieties: [
+      {
+        id: "YellowOnion",
+        name: "Yellow Onion",
+        image: yellowOnion,
+        alt: "Yellow onion – mild-flavored Egyptian variety ideal for salads and cooking",
+      },
+      {
+        id: "redOnion",
+        name: "Red Onion",
+        image: redOnion,
+        alt: "Red onion – sharp and tangy Egyptian variety perfect for grilling and roasting",
+      },
+    ],
+    
+    availability: [
+      { month: "Jan", available: false },
+      { month: "Feb", available: false },
+      { month: "Mar", available: false },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: false },
+      { month: "Dec", available: false },
+    ],
+   
+
+  },
+  {
+    id  : 'springOnion',
+    name : "Spring Onion",
+    image : springOnion,
+    alt : "Egyptian Spring Onion for export",
+    description : "Fresh and mild spring onions",
+    category : "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+
+    varieties: [
+      {
+        id: "Giza / Foton",
+        name: "Giza / Foton Onion",
+        image: springOnion,
+        alt: "Spring onion – fresh Egyptian variety with mild flavor and crisp texture",
+      },
+      
+    ],
+
+
+  }
 ];
 
 export const IqfProducts = [
