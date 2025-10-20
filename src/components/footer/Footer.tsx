@@ -1,11 +1,12 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Button } from "../ui/button";
 import fuoryLogo from "@/assets/images/logos/fuory-logo.webp";
-import patternBg from "@/assets/images/patterns/pattern.webp";
+// import patternBg from "@/assets/images/patterns/pattern.webp";
+import pattern2 from "@/assets/images/backgrounds/pattern2.png"
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${patternBg})`}}>
+    <footer className="text-white bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${pattern2})`}}>
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}
@@ -20,7 +21,7 @@ const Footer = () => {
             <p className="font-sans text-base text-gray-100 leading-relaxed">
               Fuory Company has been established in the Egyptian market since{" "}
               <span className="text-lime-400 font-semibold animate-pulse">
-                2015
+                20010
               </span>
               .
             </p>

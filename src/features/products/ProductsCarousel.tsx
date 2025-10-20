@@ -16,8 +16,7 @@ import { cn } from "@/lib/utils"
 import CarouselCard from "@/components/carsoul-card/CarouselCard"
 
 type CategoryFilter = "all" | "fruits" | "vegetables"
-import pattern from "@/assets/images/patterns/pattern.webp";
-
+import pattern2 from "@/assets/images/backgrounds/pattern2.webp"
 const ProductsCarousel = () => {
   const { products } = useProducts()
   const [api, setApi] = useState<CarouselApi>()
@@ -112,9 +111,9 @@ const ProductsCarousel = () => {
   return (
     <section
       id="products"
-      className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-emerald-600 via-teal-600"
+      className="flex h-screen w-full items-center justify-center bg-gradient-to-br from-emerald-600 via-teal-600 bg-no-repeat bg-cover"
       style={{
-        backgroundImage: `url(${pattern})`,
+        backgroundImage: `url(${pattern2})`,
       }}
     >
       <div className="container mx-auto px-4 py-12 w-full overflow-hidden">
