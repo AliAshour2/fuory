@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin,  } from "lucide-react";
 import { Button } from "../ui/button";
 import fuoryLogo from "@/assets/images/logos/fuory-logo.webp";
 // import patternBg from "@/assets/images/patterns/pattern.webp";
@@ -29,10 +29,10 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-5 mt-3">
               {[
-                { icon: Facebook, href: "https://facebook.com" },
-                { icon: Twitter, href: "https://twitter.com" },
-                { icon: Instagram, href: "https://instagram.com" },
-                { icon: Linkedin, href: "https://linkedin.com" },
+                { icon: Facebook, href: "https://www.facebook.com/people/Fuory-for-Import-and-Export/61581032096920/" },
+                // { icon: Twitter, href: "https://twitter.com" },
+                // { icon: Instagram, href: "https://instagram.com" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/fuory-for-import-and-export" ,  },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
