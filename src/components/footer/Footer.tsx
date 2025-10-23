@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 import fuoryLogo from "@/assets/images/logos/fuory-logo.webp";
 // import patternBg from "@/assets/images/patterns/pattern.webp";
 import pattern2 from "@/assets/images/backgrounds/pattern2.png"
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -21,7 +22,7 @@ const Footer = () => {
             <p className="font-sans text-base text-gray-100 leading-relaxed">
               Fuory Company has been established in the Egyptian market since{" "}
               <span className="text-lime-400 font-semibold animate-pulse">
-                20010
+               2010
               </span>
               .
             </p>
@@ -101,14 +102,13 @@ const Footer = () => {
                   <span className="text-lime-400 group-hover:animate-bounce">
                     →
                   </span>
-                  <a
-                    href={contact.href}
-                    target="_blank"
+                  <Link
+                    to={contact.href}
                     rel="noopener noreferrer"
                     className="text-gray-100 hover:text-lime-400 transition-colors cursor-pointer"
                   >
                     {contact.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
