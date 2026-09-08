@@ -26,6 +26,16 @@ import plasticBox from "@/assets/images/packing/sweetpotato/plastic.webp";
 import beuaregard from "@/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp";
 import bellevue from "@/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp";
 
+// Mango variety images
+import mangoAlfons from "@/assets/images/fruitsandvegetables/mangoes/alfons.webp";
+import mangoFasEwas from "@/assets/images/fruitsandvegetables/mangoes/fas-ewas.webp";
+import mangoHendi from "@/assets/images/fruitsandvegetables/mangoes/hendi.webp";
+import mangoKeet from "@/assets/images/fruitsandvegetables/mangoes/keet.webp";
+import mangoNaomy from "@/assets/images/fruitsandvegetables/mangoes/naomy.webp";
+import mangoTomy from "@/assets/images/fruitsandvegetables/mangoes/tomy.webp";
+import mangoEwasy from "@/assets/images/fruitsandvegetables/mangoes/awes.webp";
+import mangoSokary from "@/assets/images/fruitsandvegetables/mangoes/sokary.webp";
+import mangoElfons from "@/assets/images/fruitsandvegetables/mangoes/alfons.webp";
 export const products = [
   {
     id: "Sweet Potato",
@@ -115,43 +125,37 @@ export const products = [
       {
         id: "Awesy",
         name: "Awesy",
-        image: "",
+        image: mangoEwasy,
         alt: "Awesy mango – a popular Egyptian variety with rich sweetness and smooth texture",
-      },
-      {
-        id: "Zebda",
-        name: "Zebda",
-        image: "",
-        alt: "Zebda mango – Egyptian variety known for its buttery texture and balanced flavor",
       },
       {
         id: "Fass",
         name: "Fass",
-        image: "",
+        image: mangoFasEwas,
         alt: "Fass mango – small, juicy Egyptian variety with intense sweetness",
+      },
+      {
+        id: "Sokary",
+        name: "Sokary",
+        image: mangoSokary,
+        alt: "Sokary mango – small, juicy Egyptian variety with intense sweetness",
       },
       {
         id: "Timour",
         name: "Timour",
-        image: "",
+        image: mangoTomy,
         alt: "Timour mango – premium Egyptian variety with aromatic flavor and smooth flesh",
-      },
-      {
-        id: "Sedeek",
-        name: "Sedeek",
-        image: "",
-        alt: "Sedeek mango – unique Egyptian mango with rich flavor and pleasant aroma",
       },
       {
         id: "Naomi",
         name: "Naomi",
-        image: "",
+        image: mangoNaomy,
         alt: "Naomi mango – late-season Egyptian mango with a balanced taste and vibrant color",
       },
       {
         id: "Keitt",
         name: "Keitt",
-        image: "",
+        image: mangoKeet,
         alt: "Keitt mango – large Egyptian-grown variety with firm flesh and mild flavor",
       },
       {
@@ -159,6 +163,12 @@ export const products = [
         name: "Kent",
         image: "",
         alt: "Kent mango – sweet and fiberless Egyptian variety perfect for fresh eating",
+      },
+      {
+        id: "Elfons",
+        name: "Elfons",
+        image: mangoElfons,
+        alt: "Elfons mango – large, juicy Egyptian variety with intense sweetness",
       },
     ],
     description: "Juicy and ripe mangoes",
