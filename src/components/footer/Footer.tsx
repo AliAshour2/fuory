@@ -1,11 +1,13 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Linkedin,  } from "lucide-react";
 import { Button } from "../ui/button";
 import fuoryLogo from "@/assets/images/logos/fuory-logo.webp";
-import patternBg from "@/assets/images/patterns/pattern.webp";
+// import patternBg from "@/assets/images/patterns/pattern.webp";
+import pattern2 from "@/assets/images/backgrounds/pattern2.png"
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${patternBg})`}}>
+    <footer className="text-white bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url(${pattern2})`}}>
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
           {/* Company Info */}
@@ -20,7 +22,7 @@ const Footer = () => {
             <p className="font-sans text-base text-gray-100 leading-relaxed">
               Fuory Company has been established in the Egyptian market since{" "}
               <span className="text-lime-400 font-semibold animate-pulse">
-                2015
+               2010
               </span>
               .
             </p>
@@ -28,10 +30,10 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-5 mt-3">
               {[
-                { icon: Facebook, href: "https://facebook.com" },
-                { icon: Twitter, href: "https://twitter.com" },
-                { icon: Instagram, href: "https://instagram.com" },
-                { icon: Linkedin, href: "https://linkedin.com" },
+                { icon: Facebook, href: "https://www.facebook.com/people/Fuory-for-Import-and-Export/61581032096920/" },
+                // { icon: Twitter, href: "https://twitter.com" },
+                // { icon: Instagram, href: "https://instagram.com" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/fuory-for-import-and-export" ,  },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}
@@ -100,14 +102,13 @@ const Footer = () => {
                   <span className="text-lime-400 group-hover:animate-bounce">
                     →
                   </span>
-                  <a
-                    href={contact.href}
-                    target="_blank"
+                  <Link
+                    to={contact.href}
                     rel="noopener noreferrer"
                     className="text-gray-100 hover:text-lime-400 transition-colors cursor-pointer"
                   >
                     {contact.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -9,6 +9,17 @@ import greenPappers from "@/assets/images/fruitsandvegetables/greenpapers.webp";
 import sweetPotato from "@/assets/images/fruitsandvegetables/sweetpotato.webp";
 import tomato from "@/assets/images/fruitsandvegetables/tomato.webp";
 import pomegranate from "@/assets/images/fruitsandvegetables/pomegranate.webp";
+import icebergLettuce from "@/assets/images/fruitsandvegetables/iceberg lettuce.webp";
+import carrot from "@/assets/images/fruitsandvegetables/carrot.webp";
+import cucumber from "@/assets/images/fruitsandvegetables/cucumber.webp";
+import strawberry from "@/assets/images/fruitsandvegetables/strawberry.webp";
+import cactusFig from "@/assets/images/fruitsandvegetables/cactus-fig.webp";
+import Artichoke from "@/assets/images/fruitsandvegetables/Artichoke.webp";
+import onions  from  "@/assets/images/fruitsandvegetables/onions.webp";
+import yellowOnion from "@/assets/images/fruitsandvegetables/white-onion.webp";
+import redOnion from "@/assets/images/fruitsandvegetables/red-onion.webp";
+import potato from  "@/assets/images/fruitsandvegetables/potato.webp";
+import springOnion from "@/assets/images/fruitsandvegetables/spring-onion.webp";
 
 import frozen2 from "@/assets/images/forzen/forzen2.webp";
 import frozen3 from "@/assets/images/forzen/forzen3.webp";
@@ -22,6 +33,13 @@ import frozen10 from "@/assets/images/forzen/forzen10.webp";
 // Import packaging images
 import cartonBox from "@/assets/images/packing/sweetpotato/carton.webp";
 import plasticBox from "@/assets/images/packing/sweetpotato/plastic.webp";
+import cucumberBox from "@/assets/images/fruitsandvegetables/cucmberbox.webp";
+import orangesplasticBox from "@/assets/images/fruitsandvegetables/oranges/packing/orangeboxs.webp";
+import sweetPotatoCartonBin from "@/assets/images/packing/sweetpotato/cartonBinSp.webp";
+import sweetPotatoWoodenBin from "@/assets/images/packing/sweetpotato/woodenBin.webp";
+
+import strawberryBox from "@/assets/images/fruitsandvegetables/strawberry/strawberry-box.webp";
+import strawberryplasticPunnet from "@/assets/images/fruitsandvegetables/strawberry/strawberry-plastic-punnet.webp";
 
 import beuaregard from "@/assets/images/fruitsandvegetables/sweetpotatos/beuaregard.webp";
 import bellevue from "@/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp";
@@ -101,6 +119,255 @@ export const products = [
         weight: "20kg",
         dimensions: "60x40x30cm",
       },
+      {
+        id: "Carton Bin",
+        name: "Carton Bin",
+        image: sweetPotatoCartonBin,
+        description: "Client Request",
+        alt: "large corrugated carton bin for bulk sweet potatoes transport",
+        weight: "50kg",
+        dimensions: "varies by client request",
+      },
+      {
+        id: "Wooden Bin",
+        name: "Wooden Bin",
+        image: sweetPotatoWoodenBin,
+        description: "Client Request",
+      },
+    ],
+  },
+  {
+    id: "Strawberry",
+    name: "Strawberry",
+    image: strawberry,
+    description: "Fresh and juicy Egyptian strawberries",
+    alt: "Egyptian Strawberries for export",
+    category: "fruit",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: false },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+
+    storageAdvice: {
+      transport:
+        "Transport at 0-2°C to maintain freshness and prevent bruising",
+      shop: "Store in the refrigerator and consume within a few days for best taste",
+    },
+    growingInfo: {
+      title: "Premium Egyptian Strawberries",
+      description:
+        "Our strawberries are cultivated in the rich, sunlit fields of Egypt, ensuring vibrant color, natural sweetness, and superior quality. Grown using modern, sustainable farming techniques for the finest export-grade produce.",
+    },
+    packagingOptions: [
+      {
+        id: "Plastic Punnet",
+        name: "Plastic Punnet",
+        image: strawberryplasticPunnet,
+        description: "250g , 500g , or as per client request",
+        alt: "plastic punnet packaging for fresh Egyptian strawberries",
+        weight: "0.25kg - 0.5kg",
+        dimensions: "15x10x5cm",
+      },
+      {
+        id: "Carton Box",
+        name: "Carton Box",
+        image: strawberryBox,
+        description: "2KG , 4KG , or as per client request",
+        alt: "corrugated carton box for bulk strawberry transport",
+        weight: "2kg - 4kg",
+        dimensions: "40x30x12cm",
+      },
+    ],
+  },
+  {
+    id: "Iceberg Lettuce",
+    name: "Iceberg Lettuce",
+    image: icebergLettuce,
+    description: "Crisp and fresh iceberg lettuce",
+    alt: "Egyptian Iceberg Lettuce for export",
+    category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    varieties: [
+      {
+        id: "Egyptian Iceberg Lettuce",
+        name: "Great Lakes",
+        image: icebergLettuce,
+        alt: "Great Lakes iceberg lettuce – crisp and widely grown Egyptian variety",
+      },
+    ],
+
+    storageAdvice: {
+      transport: "Transport at 0–2°C with high humidity (90–95%)",
+      shop: "Store in a refrigerated place, ideally 0–5°C, and keep away from ethylene-producing fruits",
+    },
+    growingInfo: {
+      title: "Premium Iceberg Lettuce from Egypt",
+      description:
+        "Our iceberg lettuce is cultivated in Egypt’s fertile soil, benefiting from ideal growing conditions for producing crisp, fresh, and high-quality lettuce. Sustainable farming practices guarantee freshness and long shelf life.",
+    },
+  },
+  {
+    id : 'Potatoes',
+    name : "Potatoes",
+    image : potato ,
+    alt : "Egyptian Potatoes for export",
+    description : "Fresh and versatile potatoes",
+    category : "vegetable",
+  },
+  {
+    id: "Carrot",
+    name: "Carrot",
+    image: carrot,
+    description: "Fresh, crunchy, and nutritious carrots",
+    alt: "Egyptian Carrots for export",
+    category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    varieties: [
+      {
+        id: "OrangeCarrot",
+        name: "Orange Carrot",
+        image: carrot,
+        alt: "Orange carrot – fresh and crunchy Egyptian variety",
+      },
+    ],
+
+    storageAdvice: {
+      transport: "Transport at 0–8°C with high humidity (85–95%)",
+      shop: "Store in a cool, dark place or refrigerated between 0–4°C to maintain freshness",
+    },
+    growingInfo: {
+      title: "Premium Carrots from Egypt",
+      description:
+        "Our Egyptian carrots are cultivated in fertile soil under optimal climate conditions, producing bright orange, crisp, and sweet roots. We follow sustainable farming methods to ensure high quality and long shelf life.",
+    },
+    packagingOptions: [
+      {
+        id: "Carton Box",
+        name: "Carton Box",
+        image: "cartonBox",
+        description: "10KG , 15KG , Client Request",
+        alt: "corrugated carton box for carrots packaging",
+        weight: "10–15kg",
+        dimensions: "60x40x30cm",
+      },
+      {
+        id: "bulk pack",
+        name: "bulk pack",
+        image: "",
+        description: "5KG , 10KG , 20KG and options available",
+        alt: "breathable bulk pack for bulk carrot packaging",
+        weight: "5–20kg",
+        dimensions: "varies by client request",
+      },
+    ],
+  },
+  {
+    id: "Cucumber",
+    name: "Cucumber",
+    image: cucumber,
+    description: "Fresh, crunchy, and healthy cucumbers",
+    alt: "Egyptian Cucumbers for export",
+    category: "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    varieties: [
+      {
+        id: "Cucumber",
+        name: "Egyptian Cucumber",
+        image: cucumber,
+        alt: " cucumber – fresh Egyptian variety for salads and fresh consumption",
+      },
+    ],
+
+    storageAdvice: {
+      transport: "Transport at +10°C to +13°C with 90–95% humidity",
+      shop: "Store at +10°C to +13°C, avoid temperatures below 7°C to prevent chilling injury",
+    },
+    growingInfo: {
+      title: "Premium Cucumbers from Egypt",
+      description:
+        "Our cucumbers are cultivated in Egypt’s fertile soils, producing crisp, juicy, and high-quality cucumbers suitable for fresh markets and processing. Sustainable farming practices ensure freshness and long shelf life.",
+    },
+    packagingOptions: [
+      {
+        id: "Carton Box",
+        name: "Carton Box",
+        image: cucumberBox,
+        description: "5KG , 10KG , Client Request",
+        alt: "corrugated carton box for cucumber packaging",
+        weight: "5–10kg",
+        dimensions: "60x40x25cm",
+      },
+    ],
+  },
+  {
+    id : 'Artichoke',
+    name : "Artichoke",
+    image : Artichoke,
+    alt : "Egyptian Artichoke for export",
+    description : "Fresh and tender artichokes",
+    category : "vegetable",
+      availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: false },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: false },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
     ],
   },
   {
@@ -225,7 +492,7 @@ export const products = [
         alt: "Assiuty pomegranate – regional Egyptian variety, prized for its juiciness and vibrant color.",
       },
     ],
-    description: "Fresh, juicy, and vibrant Egyptian pomegranates.",
+    description: "Fresh and vibrant Egyptian pomegranates.",
     alt: "Egyptian Pomegranate for export",
     category: "fruit",
   },
@@ -236,6 +503,31 @@ export const products = [
     alt: "Egyptian Orange for export",
     description: "Citrus-rich sweet oranges",
     category: "fruit",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: false },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+    packagingOptions: [
+      {
+        id: "Plastic Box",
+        name: "Plastic Box",
+        image: orangesplasticBox,
+        description: "5KG , 10KG , Client Request",
+        alt: "corrugated carton box for oranges packaging",
+        weight: "5–10kg",
+        dimensions: "60x40x25cm",
+      },
+    ],
   },
   {
     id: 5,
@@ -244,6 +536,20 @@ export const products = [
     alt: "Egyptian Watermelon for export",
     description: "Refreshing summer watermelon",
     category: "fruit",
+    availability: [
+      { month: "Jan", available: false },
+      { month: "Feb", available: false },
+      { month: "Mar", available: false },
+      { month: "Apr", available: true },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
   },
   {
     id: 6,
@@ -431,6 +737,30 @@ export const products = [
     ],
   },
   {
+    id  : 'cactus fig',
+    name : "Cactus Fig",
+    image : cactusFig,
+    alt : "Egyptian Cactus Fig for export",
+    description : "Exotic and sweet cactus figs",
+    category : "fruit",
+    availability: [
+  { month: "Jan", available: false },
+  { month: "Feb", available: false },
+  { month: "Mar", available: false },
+  { month: "Apr", available: false },
+  { month: "May", available: false },
+  { month: "Jun", available: true },
+  { month: "Jul", available: true },
+  { month: "Aug", available: true },
+  { month: "Sep", available: true },
+  { month: "Oct", available: true },
+  { month: "Nov", available: false },
+  { month: "Dec", available: false },
+],
+
+  }
+  ,
+  {
     id: 1,
     name: "Fresh Fig",
     image: fig,
@@ -446,6 +776,81 @@ export const products = [
     description: "Tangy and delicious kiwi fruit",
     category: "fruit",
   },
+
+  {
+    id  : 'onions',
+    name : "Onions",
+    image : onions,
+    alt : "Egyptian Onions for export",
+    description : "Fresh and flavorful onions",
+    category : "vegetable",
+    
+    varieties: [
+      {
+        id: "YellowOnion",
+        name: "Yellow Onion",
+        image: yellowOnion,
+        alt: "Yellow onion – mild-flavored Egyptian variety ideal for salads and cooking",
+      },
+      {
+        id: "redOnion",
+        name: "Red Onion",
+        image: redOnion,
+        alt: "Red onion – sharp and tangy Egyptian variety perfect for grilling and roasting",
+      },
+    ],
+    
+    availability: [
+      { month: "Jan", available: false },
+      { month: "Feb", available: false },
+      { month: "Mar", available: false },
+      { month: "Apr", available: true },
+      { month: "May", available: true },
+      { month: "Jun", available: true },
+      { month: "Jul", available: true },
+      { month: "Aug", available: true },
+      { month: "Sep", available: true },
+      { month: "Oct", available: true },
+      { month: "Nov", available: false },
+      { month: "Dec", available: false },
+    ],
+   
+
+  },
+  {
+    id  : 'springOnion',
+    name : "Spring Onion",
+    image : springOnion,
+    alt : "Egyptian Spring Onion for export",
+    description : "Fresh and mild spring onions",
+    category : "vegetable",
+    availability: [
+      { month: "Jan", available: true },
+      { month: "Feb", available: true },
+      { month: "Mar", available: true },
+      { month: "Apr", available: true },
+      { month: "May", available: false },
+      { month: "Jun", available: false },
+      { month: "Jul", available: false },
+      { month: "Aug", available: false },
+      { month: "Sep", available: false },
+      { month: "Oct", available: true },
+      { month: "Nov", available: true },
+      { month: "Dec", available: true },
+    ],
+
+    varieties: [
+      {
+        id: "Giza / Foton",
+        name: "Giza / Foton Onion",
+        image: springOnion,
+        alt: "Spring onion – fresh Egyptian variety with mild flavor and crisp texture",
+      },
+      
+    ],
+
+
+  }
 ];
 
 export const IqfProducts = [
