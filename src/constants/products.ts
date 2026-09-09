@@ -45,15 +45,18 @@ import beuaregard from "@/assets/images/fruitsandvegetables/sweetpotatos/beuareg
 import bellevue from "@/assets/images/fruitsandvegetables/sweetpotatos/bellevue.webp";
 
 // Mango variety images
-import mangoAlfons from "@/assets/images/fruitsandvegetables/mangoes/alfons.webp";
 import mangoFasEwas from "@/assets/images/fruitsandvegetables/mangoes/fas-ewas.webp";
-import mangoHendi from "@/assets/images/fruitsandvegetables/mangoes/hendi.webp";
 import mangoKeet from "@/assets/images/fruitsandvegetables/mangoes/keet.webp";
 import mangoNaomy from "@/assets/images/fruitsandvegetables/mangoes/naomy.webp";
 import mangoTomy from "@/assets/images/fruitsandvegetables/mangoes/tomy.webp";
 import mangoEwasy from "@/assets/images/fruitsandvegetables/mangoes/awes.webp";
 import mangoSokary from "@/assets/images/fruitsandvegetables/mangoes/sokary.webp";
 import mangoElfons from "@/assets/images/fruitsandvegetables/mangoes/alfons.webp";
+
+// Tomatoes varieties images
+import Tomatoes1 from "@/assets/images/fruitsandvegetables/tomatoes/tomatoes.webp"
+import Tomatoes2 from "@/assets/images/fruitsandvegetables/tomatoes/tomatoes2.webp"
+import Tomatoes4 from "@/assets/images/fruitsandvegetables/tomatoes/tomatoes4.webp"
 export const products = [
   {
     id: "Sweet Potato",
@@ -671,69 +674,25 @@ export const products = [
       {
         id: "Bar84",
         name: "Bar 84",
-        image: "",
+        image: Tomatoes1,
         alt: "Bar 84 tomato – high-quality variety with rich flavor and excellent texture.",
       },
       {
         id: "R196",
         name: "R196",
-        image: "",
+        image: Tomatoes2,
         alt: "R196 tomato – robust tomato variety known for its firmness and taste.",
       },
-      {
-        id: "SunGold",
-        name: "Sun Gold Tomatoes",
-        image: "",
-        alt: "Sun Gold tomatoes – sweet golden cherry tomatoes with a tangy flavor.",
-      },
-      {
-        id: "BabyPlum",
-        name: "Baby Plum Tomatoes",
-        image: "",
-        alt: "Baby Plum tomatoes – small, juicy plum-shaped tomatoes perfect for snacking and salads.",
-      },
-      {
-        id: "Beef",
-        name: "Beef Tomatoes",
-        image: "",
-        alt: "Beef tomatoes – large, meaty tomatoes ideal for slicing and sandwiches.",
-      },
+
+
       {
         id: "Cherry",
         name: "Cherry Tomatoes",
-        image: "",
+        image: Tomatoes4,
         alt: "Cherry tomatoes – bite-sized, sweet tomatoes great for salads and garnishing.",
       },
-      {
-        id: "CherryVine",
-        name: "Cherry Tomatoes on the Vine",
-        image: "",
-        alt: "Cherry tomatoes on the vine – aromatic tomatoes harvested with their vines for extra freshness.",
-      },
-      {
-        id: "Plum",
-        name: "Plum Tomatoes",
-        image: "",
-        alt: "Plum tomatoes – oval-shaped tomatoes with thick flesh, perfect for sauces.",
-      },
-      {
-        id: "VineRipened",
-        name: "Vine Ripened Tomatoes",
-        image: "",
-        alt: "Vine ripened tomatoes – full-flavored tomatoes matured naturally on the vine.",
-      },
-      {
-        id: "Silca",
-        name: "Silca Tomatoes",
-        image: "",
-        alt: "Silca tomatoes – high-quality tomato variety valued for consistency and taste.",
-      },
-      {
-        id: "MidiPlum",
-        name: "Midi Plum Tomatoes",
-        image: "",
-        alt: "Midi Plum tomatoes – medium-sized plum tomatoes with rich, sweet flavor.",
-      },
+
+
     ],
   },
   {
