@@ -1,0 +1,30 @@
+# Fuory
+
+> Fuory is a B2B exporter and international supplier of fresh and frozen fruits and vegetables, with its own export and packing facility serving buyers across Europe, the Arab region, the USA, China, South America, and other international markets.
+
+## About Fuory
+- [About Fuory](https://fuory.vercel.app/about): Company overview, history, and B2B export capabilities.
+
+## Products
+- [All Products](https://fuory.vercel.app/products): Full catalog of fresh and frozen fruits and vegetables available for export.
+- [Fresh Fruits](https://fuory.vercel.app/fresh-fruits): Fresh fruit export catalog including mango, strawberry, oranges, pomegranate, watermelon, figs, kiwi, grapes, and more.
+- [Fresh Vegetables](https://fuory.vercel.app/fresh-vegetables): Fresh vegetable export catalog including sweet potatoes, potatoes, onions, tomatoes, carrots, cucumbers, peppers, iceberg lettuce, artichokes, and more.
+- [Frozen Products](https://fuory.vercel.app/frozen-products): IQF frozen fruits and vegetables including frozen mango, strawberry, pineapple, okra, peas, mixed vegetables, broccoli, and spinach.
+
+## Key Product Pages
+- [Sweet Potatoes](https://fuory.vercel.app/products/Sweet%20Potato): Varieties (Beauregard, Bellevue), packaging options, availability, and export specifications.
+- [Mango](https://fuory.vercel.app/products/Mango): Egyptian mango varieties (Awesy, Fass, Sokary, Timour, Naomi, Keitt, Kent, Elfons), seasonality, and export details.
+- [Strawberry](https://fuory.vercel.app/products/Strawberry): Fresh Egyptian strawberries with packaging and storage information.
+- [Oranges](https://fuory.vercel.app/products/4): Fresh Egyptian oranges for export.
+- [Pomegranate](https://fuory.vercel.app/products/Pomegranate): Varieties (Wonderful, Manfaluti, Baladi, Early 116, Assiuty) and export details.
+- [Tomatoes](https://fuory.vercel.app/products/Tomato): Varieties (Bar 84, R196, Cherry) with packaging and growing information.
+- [Onions](https://fuory.vercel.app/products/onions): Yellow and Red onion varieties for export.
+
+## Export & Operations
+- [Export Markets](https://fuory.vercel.app/export-markets): International markets served including Europe, Arab countries, USA, China, and South America.
+- [Export Process](https://fuory.vercel.app/export-process): Step-by-step export process from receiving to international shipping.
+- [Packing Station](https://fuory.vercel.app/packing-station): Fuory's own export and packing facility capabilities.
+- [Quality Control](https://fuory.vercel.app/quality): Quality assurance processes and standards.
+
+## Contact
+- [Contact Fuory](https://fuory.vercel.app/contact): Request a quote, send an inquiry, or discuss your requirements. Phone: +201010101972. Email: info@fuory.com. Location: Alexandria, Egypt.
